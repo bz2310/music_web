@@ -253,21 +253,24 @@ const LaunchpadDB = {
         earlySupporter: {
             id: 'earlySupporter',
             name: 'Early Supporter',
-            emoji: '🌱',
+            icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6m0 0l-3-3m3 3l3-3"/><path d="M12 22c-4 0-7-3-7-7 0-2 1-4 3-5.5S12 8 12 8s2 0 4 1.5 3 3.5 3 5.5c0 4-3 7-7 7z"/></svg>',
+            color: '#22c55e',
             category: 'Core Identity',
             description: 'Supported an artist early in their journey'
         },
         foundingListener: {
             id: 'foundingListener',
             name: 'Founding Listener',
-            emoji: '🎧',
+            icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3v5z"/><path d="M3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3v5z"/></svg>',
+            color: '#8b2bff',
             category: 'Core Identity',
             description: "Supported an artist's first release on Launchpad"
         },
         milestoneUnlocker: {
             id: 'milestoneUnlocker',
             name: 'Milestone Unlocker',
-            emoji: '🔓',
+            icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>',
+            color: '#f59e0b',
             category: 'Core Identity',
             description: 'Participated in unlocking one or more release milestones'
         },
@@ -275,21 +278,24 @@ const LaunchpadDB = {
         communityVoice: {
             id: 'communityVoice',
             name: 'Community Voice',
-            emoji: '💬',
+            icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2v10z"/></svg>',
+            color: '#3b82f6',
             category: 'Contribution',
             description: 'Meaningful, consistent participation in artist communities'
         },
         showSupporter: {
             id: 'showSupporter',
             name: 'Show Supporter',
-            emoji: '📍',
+            icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+            color: '#ef4444',
             category: 'Contribution',
             description: 'Attended a live event tied to Launchpad'
         },
         btsCircle: {
             id: 'btsCircle',
             name: 'BTS Circle',
-            emoji: '🎥',
+            icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>',
+            color: '#ec4899',
             category: 'Contribution',
             description: 'Accessed behind-the-scenes / inner-circle content'
         },
@@ -297,7 +303,8 @@ const LaunchpadDB = {
         tastemaker: {
             id: 'tastemaker',
             name: 'Tastemaker',
-            emoji: '🎶',
+            icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>',
+            color: '#a855f7',
             category: 'Taste & Signal',
             description: 'Known for backing multiple artists early who later crossed milestones'
         }
@@ -308,31 +315,36 @@ const LaunchpadDB = {
         verifiedArtist: {
             id: 'verifiedArtist',
             name: 'Verified Artist',
-            emoji: '✅',
+            icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>',
+            color: '#22c55e',
             description: 'Identity confirmed by Launchpad'
         },
         communityBacked: {
             id: 'communityBacked',
             name: 'Community-Backed',
-            emoji: '🚀',
+            icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>',
+            color: '#f97316',
             description: 'Reached first supporter milestone with fans'
         },
         milestoneArtist: {
             id: 'milestoneArtist',
             name: 'Milestone Artist',
-            emoji: '🔓',
+            icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><line x1="12" y1="11" x2="12" y2="17"/></svg>',
+            color: '#f59e0b',
             description: 'Unlocked one or more release milestones'
         },
         firstRelease: {
             id: 'firstRelease',
-            name: 'First Release on Launchpad',
-            emoji: '🎬',
+            name: 'First Release',
+            icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>',
+            color: '#8b2bff',
             description: 'Chose Launchpad as the starting point for a release'
         },
         independentArtist: {
             id: 'independentArtist',
-            name: 'Independent Artist',
-            emoji: '🧭',
+            name: 'Independent',
+            icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>',
+            color: '#06b6d4',
             description: 'Self-directed, no label affiliation'
         }
     },

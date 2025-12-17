@@ -265,7 +265,7 @@ function renderArtistBadges() {
 
         html += `
             <span class="artist-badge" title="${definition.description}">
-                <span class="artist-badge-emoji">${definition.emoji}</span>
+                <span class="artist-badge-icon" style="--badge-color: ${definition.color}">${definition.icon}</span>
                 <span class="artist-badge-name">${definition.name}</span>
             </span>
         `;

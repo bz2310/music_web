@@ -128,7 +128,7 @@ const LaunchpadUI = {
 
             html += `
                 <div class="badge-item ${badgeClass}" title="${definition.description}">
-                    <span class="badge-emoji">${definition.emoji}</span>
+                    <span class="badge-icon" style="--badge-color: ${definition.color}">${definition.icon}</span>
                     <div class="badge-info">
                         <span class="badge-name">${definition.name}</span>
                         ${isEarned ? `<span class="badge-date">Earned ${badge.earnedDate}</span>` : '<span class="badge-locked-text">Locked</span>'}
