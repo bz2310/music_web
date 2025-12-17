@@ -93,6 +93,16 @@ body {
     stroke: currentColor;
 }
 
+.nav-item.artist-dashboard-link {
+    margin-top: 20px;
+    background: linear-gradient(135deg, rgba(139, 43, 255, 0.15) 0%, rgba(179, 102, 255, 0.1) 100%);
+    border: 1px solid var(--primary);
+}
+
+.nav-item.artist-dashboard-link:hover {
+    background: linear-gradient(135deg, rgba(139, 43, 255, 0.25) 0%, rgba(179, 102, 255, 0.2) 100%);
+}
+
 .launch-btn {
     width: 100%;
     padding: 12px 24px;
