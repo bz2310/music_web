@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeremy Elliot | Launchpad</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="artist.css">
+</head>
+<body>
+    <div class="container mobile-friendly">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <rect x="4" y="12" width="8" height="16" fill="#b366ff"/>
+                    <rect x="12" y="4" width="8" height="24" fill="#8b2bff"/>
+                    <rect x="20" y="8" width="8" height="20" fill="#b366ff"/>
+                </svg>
+                <span>Launchpad</span>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-item" data-section="home">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    <span>Home</span>
+                </a>
+
+                <a href="index.html#explore" class="nav-item" data-section="explore">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <span>Explore</span>
+                </a>
+
+                <a href="index.html#notifications" class="nav-item" data-section="notifications">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                    </svg>
+                    <span>Notifications</span>
+                </a>
+
+                <a href="index.html#chat" class="nav-item" data-section="chat">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    <span>Chat</span>
+                </a>
+
+                <a href="index.html#communities" class="nav-item" data-section="communities">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    <span>Communities</span>
+                </a>
+
+                <a href="index.html#profile" class="nav-item" data-section="profile">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <span>Profile</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Artist Header/Banner -->
+            <div class="artist-banner">
+                <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&h=400&fit=crop" alt="Banner" class="banner-image">
+            </div>
+
+            <!-- Artist Profile Info -->
+            <div class="artist-profile-header">
+                <img src="jeremy-elliot-profile.jpg" alt="Jeremy Elliot" class="artist-avatar">
+                <div class="artist-info">
+                    <div class="artist-name-row">
+                        <h1>Jeremy Elliot</h1>
+                        <span class="verified-badge">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <p class="artist-handle">@jeremyelliot</p>
+                    <p class="artist-location">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        Topanga, CA
+                    </p>
+                    <p class="artist-bio">Grammy-nominated singer-songwriter making music to heal. One song at a time. ✨ Second cousin of folk legend Ramblin' Jack Elliot. Debut EP "II" out now.</p>
+                    <div class="artist-stats">
+                        <div class="stat">
+                            <span class="stat-number">26K</span>
+                            <span class="stat-label">Followers</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">1.9K</span>
+                            <span class="stat-label">Following</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">35.5K</span>
+                            <span class="stat-label">Monthly Listeners</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="artist-action-buttons">
+                    <button class="follow-artist-btn">Follow</button>
+                    <a href="index.html#chat" class="message-artist-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                        Message
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="tabs-container">
+                <button class="tab active" data-tab="posts">Posts</button>
+                <button class="tab" data-tab="live-events">Live Events</button>
+                <button class="tab" data-tab="merch">Merch</button>
+            </div>
+
+            <!-- Content Area -->
+            <div class="content">
+                <!-- Posts Tab -->
+                <div id="posts" class="tab-content active">
+                    <!-- Content Type Filters -->
+                    <div class="content-filters">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="music">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 18V5l12-2v13"></path>
+                                <circle cx="6" cy="18" r="3"></circle>
+                                <circle cx="18" cy="16" r="3"></circle>
+                            </svg>
+                            Music
+                        </button>
+                        <button class="filter-btn" data-filter="video">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                                <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                            </svg>
+                            Video
+                        </button>
+                        <button class="filter-btn" data-filter="post">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                            </svg>
+                            Post
+                        </button>
+                        <button class="filter-btn" data-filter="pictures">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                <polyline points="21 15 16 10 5 21"></polyline>
+                            </svg>
+                            Pictures
+                        </button>
+                        <button class="filter-btn" data-filter="merch-drop">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                                <line x1="3" y1="6" x2="21" y2="6"></line>
+                                <path d="M16 10a4 4 0 0 1-8 0"></path>
+                            </svg>
+                            Merch Drop
+                        </button>
+                    </div>
+
+                    <!-- Feed Posts -->
+                    <div class="posts-feed">
+                        <!-- Music Post -->
+                        <div class="feed-item" data-type="music">
+                            <div class="post-header">
+                                <img src="jeremy-elliot-profile.jpg" alt="Artist" class="avatar-small">
+                                <div class="post-info">
+                                    <h3>Jeremy Elliot <span class="verified-small">✓</span></h3>
+                                    <span class="handle">@jeremyelliot</span>
+                                    <span class="timestamp">2 hours ago</span>
+                                </div>
+                                <span class="post-type-badge music">Music</span>
+                                <button class="menu-btn">•••</button>
+                            </div>
+                            <p class="post-content">My debut EP "II" is finally here! Seven tracks that tell my story through love, loss, addiction, and hope. This is music to heal. 🎵✨</p>
+                            <div class="music-player">
+                                <img src="https://api.dicebear.com/7.x/shapes/svg?seed=jeremyelliotII" alt="Album art" class="track-art">
+                                <div class="track-info">
+                                    <h4>II - EP</h4>
+                                    <p>Jeremy Elliot • 7 tracks</p>
+                                    <div class="waveform">
+                                        <div class="waveform-bar"></div>
+                                        <div class="waveform-bar"></div>
+                                        <div class="waveform-bar"></div>
+                                        <div class="waveform-bar"></div>
+                                        <div class="waveform-bar"></div>
+                                        <div class="waveform-bar"></div>
+                                        <div class="waveform-bar"></div>
+                                        <div class="waveform-bar"></div>
+                                        <div class="waveform-bar"></div>
+                                        <div class="waveform-bar"></div>
+                                    </div>
+                                </div>
+                                <button class="play-btn">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="post-actions">
+                                <button class="action-btn">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                    </svg>
+                                    <span>4.2K</span>
+                                </button>
+                                <button class="action-btn">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                    </svg>
+                                    <span>342</span>
+                                </button>
+                                <button class="action-btn">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M17 1l4 4-4 4"></path>
+                                        <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+                                        <path d="M7 23l-4-4 4-4"></path>
+                                        <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+                                    </svg>
+                                    <span>1.1K</span>
+                                </button>
+                                <button class="action-btn">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                                        <polyline points="16 6 12 2 8 6"></polyline>
+                                        <line x1="12" y1="2" x2="12" y2="15"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Video Post -->
+                        <div class="feed-item" data-type="video">
+                            <div class="post-header">
+                                <img src="jeremy-elliot-profile.jpg" alt="Artist" class="avatar-small">
+                                <div class="post-info">
+                                    <h3>Jeremy Elliot <span class="verified-small">✓</span></h3>
+                                    <span class="handle">@jeremyelliot</span>
+                                    <span class="timestamp">1 day ago</span>
+                                </div>
+                                <span class="post-type-badge video">Video</span>
+                                <button class="menu-btn">•••</button>
+                            </div>
+                            <p class="post-content">Behind the scenes of "The Deep End" music video shoot 🎬 This song saved my life. Full video out now!</p>
+                            <div class="video-preview">
+                                <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&h=340&fit=crop" alt="Video thumbnail">
+                                <div class="video-play-overlay">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                    </svg>
+                                </div>
+                                <span class="video-duration">3:24</span>
+                            </div>
+                            <div class="post-actions">
+                                <button class="action-btn">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                    </svg>
+                                    <span>8.9K</span>
+                                </button>
+                                <button class="action-btn">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                    </svg>
+                                    <span>567</span>
+                                </button>
+                                <button class="action-btn">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M17 1l4 4-4 4"></path>
+                                        <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+                                        <path d="M7 23l-4-4 4-4"></path>
+                                        <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+                                    </svg>
+                                    <span>2.3K</span>
+                                </button>
+                                <button class="action-btn">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                                        <polyline points="16 6 12 2 8 6"></polyline>
+                                        <line x1="12" y1="2" x2="12" y2="15"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Regular Post -->
+                        <div class="feed-item" data-type="post">
+                            <div class="post-header">
+                                <img src="jeremy-elliot-profile.jpg" alt="Artist" class="avatar-small">
+                                <div class="post-info">
+                                    <h3>Jeremy Elliot <span class="verified-small">✓</span></h3>
+                                    <span class="handle">@jeremyelliot</span>
+                                    <span class="timestamp">2 days ago</span>
+                                </div>
+                                <span class="post-type-badge post">Post</span>
+                                <button class="menu-btn">•••</button>
+                            </div>
+                            <p class="post-content">From busking on NYC streets at 13 to a Grammy nomination with Justin Bieber's "Purpose" album. What a journey. Thank you to everyone who believed in me, especially Poo Bear and DannyBoyStyles 🙏✨</p>
+                            <div class="post-actions">
+                                <button class="action-btn">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                    </svg>
+                                    <span>2.1K</span>
+                                </button>
+                                <button class="action-btn">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                    </svg>
+                                    <span>189</span>
+                                </button>
+                                <button class="action-btn">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M17 1l4 4-4 4"></path>
+                                        <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+                                        <path d="M7 23l-4-4 4-4"></path>
+                                        <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+                                    </svg>
+                                    <span>456</span>
+                                </button>
+                                <button class="action-btn">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                                        <polyline points="16 6 12 2 8 6"></polyline>
+                                        <line x1="12" y1="2" x2="12" y2="15"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Pictures Post -->
+                        <div class="feed-item" data-type="pictures">
+                            <div class="post-header">
+                                <img src="jeremy-elliot-profile.jpg" alt="Artist" class="avatar-small">
+                                <div class="post-info">
+                                    <h3>Jeremy Elliot <span class="verified-small">✓</span></h3>
+                                    <span class="handle">@jeremyelliot</span>
+                                    <span class="timestamp">3 days ago</span>
+                                </div>
+                                <span class="post-type-badge pictures">Pictures</span>
+                                <button class="menu-btn">•••</button>
+                            </div>
+                            <p class="post-content">Throwback to performing at the Silence the Violence Benefit in DC alongside Katy Perry, Norah Jones, and Mavis Staples. Still surreal. 📸</p>
+                            <div class="photo-grid">
+                                <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=400&h=400&fit=crop" alt="Concert photo 1">
+                                <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=400&h=400&fit=crop" alt="Concert photo 2">
+                                <img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?w=400&h=400&fit=crop" alt="Concert photo 3">
+                                <img src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=400&h=400&fit=crop" alt="Concert photo 4">
+                            </div>
+                            <div class="post-actions">
+                                <button class="action-btn">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                    </svg>
+                                    <span>12.4K</span>
+                                </button>
+                                <button class="action-btn">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                    </svg>
+                                    <span>834</span>
+                                </button>
+                                <button class="action-btn">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M17 1l4 4-4 4"></path>
+                                        <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+                                        <path d="M7 23l-4-4 4-4"></path>
+                                        <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+                                    </svg>
+                                    <span>3.2K</span>
+                                </button>
+                                <button class="action-btn">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                                        <polyline points="16 6 12 2 8 6"></polyline>
+                                        <line x1="12" y1="2" x2="12" y2="15"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Merch Drop Post -->
+                        <div class="feed-item" data-type="merch-drop">
+                            <div class="post-header">
+                                <img src="jeremy-elliot-profile.jpg" alt="Artist" class="avatar-small">
+                                <div class="post-info">
+                                    <h3>Jeremy Elliot <span class="verified-small">✓</span></h3>
+                                    <span class="handle">@jeremyelliot</span>
+                                    <span class="timestamp">5 days ago</span>
+                                </div>
+                                <span class="post-type-badge merch-drop">Merch Drop</span>
+                                <button class="menu-btn">•••</button>
+                            </div>
+                            <p class="post-content">"II" EP merch is HERE! Limited edition hoodies, tees, and signed vinyls. All proceeds support mental health awareness. Link below 👇</p>
+                            <div class="merch-preview">
+                                <div class="merch-preview-item">
+                                    <div class="merch-image" style="background: linear-gradient(135deg, #8b2bff 0%, #b366ff 100%);"></div>
+                                    <h4>Music To Heal Hoodie</h4>
+                                    <p class="merch-price">$59.99</p>
+                                </div>
+                                <div class="merch-preview-item">
+                                    <div class="merch-image" style="background: linear-gradient(135deg, #b366ff 0%, #8b2bff 100%);"></div>
+                                    <h4>II EP T-Shirt</h4>
+                                    <p class="merch-price">$34.99</p>
+                                </div>
+                                <div class="merch-preview-item">
+                                    <div class="merch-image" style="background: linear-gradient(135deg, #7a1fa0 0%, #b366ff 100%);"></div>
+                                    <h4>Signed Vinyl - II</h4>
+                                    <p class="merch-price">$49.99</p>
+                                </div>
+                            </div>
+                            <div class="post-actions">
+                                <button class="action-btn">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                    </svg>
+                                    <span>6.7K</span>
+                                </button>
+                                <button class="action-btn">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                    </svg>
+                                    <span>423</span>
+                                </button>
+                                <button class="action-btn">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M17 1l4 4-4 4"></path>
+                                        <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+                                        <path d="M7 23l-4-4 4-4"></path>
+                                        <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+                                    </svg>
+                                    <span>1.8K</span>
+                                </button>
+                                <button class="action-btn">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                                        <polyline points="16 6 12 2 8 6"></polyline>
+                                        <line x1="12" y1="2" x2="12" y2="15"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Events Tab -->
+                <div id="live-events" class="tab-content">
+                    <div class="event-card">
+                        <div class="event-image" style="background: linear-gradient(135deg, #8b2bff 0%, #b366ff 100%);"></div>
+                        <div class="event-details">
+                            <span class="event-badge live">LIVE NOW</span>
+                            <h3>Acoustic Session - Fan Requests</h3>
+                            <p class="event-artist">Jeremy Elliot</p>
+                            <p class="event-viewers">🔴 2.4K watching</p>
+                            <button class="event-btn">Join Stream</button>
+                        </div>
+                    </div>
+
+                    <div class="event-card">
+                        <div class="event-image" style="background: linear-gradient(135deg, #b366ff 0%, #8b2bff 100%);"></div>
+                        <div class="event-details">
+                            <span class="event-badge upcoming">UPCOMING</span>
+                            <h3>City Lights Tour - Los Angeles</h3>
+                            <p class="event-artist">The Wiltern</p>
+                            <p class="event-date">Dec 28, 2025 • 8:00 PM</p>
+                            <button class="event-btn">Get Tickets</button>
+                        </div>
+                    </div>
+
+                    <div class="event-card">
+                        <div class="event-image" style="background: linear-gradient(135deg, #7a1fa0 0%, #b366ff 100%);"></div>
+                        <div class="event-details">
+                            <span class="event-badge upcoming">UPCOMING</span>
+                            <h3>City Lights Tour - San Francisco</h3>
+                            <p class="event-artist">The Fillmore</p>
+                            <p class="event-date">Jan 5, 2026 • 8:00 PM</p>
+                            <button class="event-btn">Get Tickets</button>
+                        </div>
+                    </div>
+
+                    <div class="event-card">
+                        <div class="event-image" style="background: linear-gradient(135deg, #9d4edd 0%, #c77dff 100%);"></div>
+                        <div class="event-details">
+                            <span class="event-badge upcoming">UPCOMING</span>
+                            <h3>Album Listening Party - Virtual</h3>
+                            <p class="event-artist">Online Event</p>
+                            <p class="event-date">Jan 15, 2026 • 7:00 PM</p>
+                            <button class="event-btn">Set Reminder</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Merch Tab -->
+                <div id="merch" class="tab-content">
+                    <div class="merch-grid">
+                        <div class="merch-item">
+                            <div class="merch-image" style="background: linear-gradient(135deg, #8b2bff 0%, #b366ff 100%);"></div>
+                            <h4>City Lights Hoodie</h4>
+                            <p class="merch-artist">Official Merch</p>
+                            <p class="merch-price">$59.99</p>
+                            <button class="merch-btn">View</button>
+                        </div>
+
+                        <div class="merch-item">
+                            <div class="merch-image" style="background: linear-gradient(135deg, #b366ff 0%, #8b2bff 100%);"></div>
+                            <h4>Tour T-Shirt 2025</h4>
+                            <p class="merch-artist">Official Merch</p>
+                            <p class="merch-price">$34.99</p>
+                            <button class="merch-btn">View</button>
+                        </div>
+
+                        <div class="merch-item">
+                            <div class="merch-image" style="background: linear-gradient(135deg, #7a1fa0 0%, #b366ff 100%);"></div>
+                            <h4>Signed Vinyl - City Lights</h4>
+                            <p class="merch-artist">Limited Edition</p>
+                            <p class="merch-price">$49.99</p>
+                            <button class="merch-btn">View</button>
+                        </div>
+
+                        <div class="merch-item">
+                            <div class="merch-image" style="background: linear-gradient(135deg, #9d4edd 0%, #c77dff 100%);"></div>
+                            <h4>Beanie - Black</h4>
+                            <p class="merch-artist">Official Merch</p>
+                            <p class="merch-price">$24.99</p>
+                            <button class="merch-btn">View</button>
+                        </div>
+
+                        <div class="merch-item">
+                            <div class="merch-image" style="background: linear-gradient(135deg, #6b21a8 0%, #a855f7 100%);"></div>
+                            <h4>Poster Bundle</h4>
+                            <p class="merch-artist">3-Pack</p>
+                            <p class="merch-price">$19.99</p>
+                            <button class="merch-btn">View</button>
+                        </div>
+
+                        <div class="merch-item">
+                            <div class="merch-image" style="background: linear-gradient(135deg, #581c87 0%, #9333ea 100%);"></div>
+                            <h4>Phone Case</h4>
+                            <p class="merch-artist">All Models</p>
+                            <p class="merch-price">$29.99</p>
+                            <button class="merch-btn">View</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Sidebar -->
+        <aside class="right-sidebar">
+            <!-- Social Links -->
+            <div class="social-links-section">
+                <h3>Connect with Jeremy</h3>
+                <div class="social-links">
+                    <a href="https://linktr.ee/jeremyelliot" target="_blank" class="social-link website">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                        <span>linktr.ee/jeremyelliot</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="external-icon">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                    <a href="https://open.spotify.com/artist/23ZZa8bvuBh0DruAjeAOtv" target="_blank" class="social-link spotify">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                        </svg>
+                        <span>Spotify</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="external-icon">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/jeremyelliot_/" target="_blank" class="social-link instagram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                        <span>@jeremyelliot_</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="external-icon">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                    <a href="https://soundcloud.com/jeremyelliotofficial" target="_blank" class="social-link soundcloud">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M1.175 12.225c-.051 0-.094.046-.101.1l-.233 2.154.233 2.105c.007.058.05.098.101.098.05 0 .09-.04.099-.098l.255-2.105-.27-2.154c-.009-.058-.05-.1-.084-.1zm-.899 1.125c-.051 0-.094.046-.101.1l-.152 1.029.152 1.005c.007.058.05.098.101.098.05 0 .09-.04.099-.098l.177-1.005-.177-1.029c-.009-.058-.05-.1-.099-.1zm1.8-.575c-.051 0-.094.046-.101.1l-.21 1.604.21 1.561c.007.058.05.098.101.098.05 0 .09-.04.099-.098l.247-1.561-.247-1.604c-.009-.058-.05-.1-.099-.1zm.9-.45c-.058 0-.104.046-.111.1l-.186 2.054.186 1.976c.007.058.053.098.111.098.057 0 .104-.04.11-.098l.218-1.976-.218-2.054c-.006-.058-.053-.1-.11-.1zm.9-.45c-.058 0-.104.046-.111.1l-.158 2.504.158 2.402c.007.058.053.098.111.098.057 0 .104-.04.11-.098l.188-2.402-.188-2.504c-.006-.058-.053-.1-.11-.1zm.9-.229c-.066 0-.117.046-.124.1l-.13 2.733.13 2.601c.007.058.058.098.124.098.065 0 .117-.04.123-.098l.153-2.601-.153-2.733c-.006-.058-.058-.1-.123-.1zm.9-.172c-.066 0-.117.046-.124.1l-.101 2.905.101 2.751c.007.058.058.098.124.098.065 0 .117-.04.123-.098l.122-2.751-.122-2.905c-.006-.058-.058-.1-.123-.1zm.9-.143c-.073 0-.131.053-.138.115l-.074 3.048.074 2.86c.007.062.065.115.138.115.072 0 .13-.053.137-.115l.088-2.86-.088-3.048c-.007-.062-.065-.115-.137-.115zm.9-.115c-.073 0-.131.053-.138.115l-.046 3.163.046 2.931c.007.062.065.115.138.115.072 0 .13-.053.137-.115l.056-2.931-.056-3.163c-.007-.062-.065-.115-.137-.115zm.9-.086c-.08 0-.145.06-.152.13l-.018 3.249.018 2.974c.007.07.072.13.152.13.079 0 .144-.06.151-.13l.024-2.974-.024-3.249c-.007-.07-.072-.13-.151-.13zm1.7.613c-.109 0-.195.085-.195.195v6.111c0 .107.086.195.195.195h5.282c1.87 0 3.386-1.517 3.386-3.386 0-1.87-1.516-3.386-3.386-3.386-.548 0-1.065.131-1.523.363-.195-2.218-2.065-3.955-4.349-3.955-1.038 0-1.998.352-2.762.944-.185.144-.225.395-.09.586.144.184.395.224.586.09.608-.471 1.375-.733 2.166-.733 1.927 0 3.496 1.569 3.496 3.496 0 .107.086.195.195.195.108 0 .195-.088.195-.195 0-.27.021-.535.062-.793.073-.43.458-.74.893-.74 1.463 0 2.65 1.188 2.65 2.65 0 1.463-1.188 2.65-2.65 2.65h-5.087v-5.916c.656.26 1.144.878 1.227 1.615.036.323.314.559.639.539.325-.02.572-.292.558-.617-.047-1.167-.816-2.166-1.889-2.538-.172-.06-.36-.09-.548-.09z"/>
+                        </svg>
+                        <span>SoundCloud</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="external-icon">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Membership Tiers -->
+            <div class="membership-section">
+                <h3>Membership</h3>
+                <p class="membership-intro">Support Jeremy and get exclusive perks</p>
+
+                <div class="membership-tier">
+                    <div class="tier-header" onclick="this.parentElement.classList.toggle('expanded')">
+                        <div class="tier-info">
+                            <span class="tier-name">Listeners</span>
+                            <span class="tier-price">$10<span class="per-month">/month</span></span>
+                        </div>
+                        <svg class="tier-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+                    <div class="tier-details">
+                        <ul>
+                            <li>Ad-free listening experience</li>
+                            <li>Early access to new releases (48 hours)</li>
+                            <li>Monthly exclusive behind-the-scenes content</li>
+                            <li>Listeners-only Discord channel access</li>
+                            <li>10% discount on merch</li>
+                        </ul>
+                        <button class="tier-join-btn">Join Listeners</button>
+                    </div>
+                </div>
+
+                <div class="membership-tier featured">
+                    <div class="tier-badge">Most Popular</div>
+                    <div class="tier-header" onclick="this.parentElement.classList.toggle('expanded')">
+                        <div class="tier-info">
+                            <span class="tier-name">Superfans</span>
+                            <span class="tier-price">$30<span class="per-month">/month</span></span>
+                        </div>
+                        <svg class="tier-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+                    <div class="tier-details">
+                        <ul>
+                            <li>Everything in Listeners tier</li>
+                            <li>Weekly exclusive acoustic sessions & demos</li>
+                            <li>Monthly live Q&A video calls with Jeremy</li>
+                            <li>Name in album credits</li>
+                            <li>Priority access to concert tickets</li>
+                            <li>25% discount on merch</li>
+                            <li>Signed digital artwork each month</li>
+                            <li>Direct messaging access</li>
+                        </ul>
+                        <button class="tier-join-btn">Join Superfans</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Similar Artists -->
+            <div class="similar-artists-section">
+                <h3>Similar Artists</h3>
+                <div class="similar-artists">
+                    <a href="#" class="similar-artist">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=artist1" alt="Luna Eclipse" class="similar-avatar">
+                        <div class="similar-info">
+                            <h4>Luna Eclipse</h4>
+                            <p>182K followers</p>
+                        </div>
+                        <button class="follow-small-btn">Follow</button>
+                    </a>
+                    <a href="#" class="similar-artist">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=artist2" alt="Sonic Wave" class="similar-avatar">
+                        <div class="similar-info">
+                            <h4>Sonic Wave</h4>
+                            <p>156K followers</p>
+                        </div>
+                        <button class="follow-small-btn">Follow</button>
+                    </a>
+                    <a href="#" class="similar-artist">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=artist3" alt="Rhythm King" class="similar-avatar">
+                        <div class="similar-info">
+                            <h4>Rhythm King</h4>
+                            <p>234K followers</p>
+                        </div>
+                        <button class="follow-small-btn">Follow</button>
+                    </a>
+                    <a href="#" class="similar-artist">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=artist4" alt="Echo Sound" class="similar-avatar">
+                        <div class="similar-info">
+                            <h4>Echo Sound</h4>
+                            <p>98K followers</p>
+                        </div>
+                        <button class="follow-small-btn">Follow</button>
+                    </a>
+                    <a href="#" class="similar-artist">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=artist5" alt="Neon Pulse" class="similar-avatar">
+                        <div class="similar-info">
+                            <h4>Neon Pulse</h4>
+                            <p>121K followers</p>
+                        </div>
+                        <button class="follow-small-btn">Follow</button>
+                    </a>
+                </div>
+                <a href="#" class="show-more">Show more</a>
+            </div>
+        </aside>
+    </div>
+
+    <script src="artist.js"></script>
+</body>
+</html>
