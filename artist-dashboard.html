@@ -234,20 +234,52 @@
 
                     <div class="revenue-summary">
                         <div class="revenue-stat">
-                            <span class="revenue-stat-value" id="rev-total">$0</span>
-                            <span class="revenue-stat-label">Total</span>
+                            <div class="stat-icon total">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="revenue-stat-value" id="rev-total">$0</span>
+                                <span class="revenue-stat-label">Total</span>
+                            </div>
                         </div>
                         <div class="revenue-stat">
-                            <span class="revenue-stat-value" id="rev-avg">$0</span>
-                            <span class="revenue-stat-label">Daily Average</span>
+                            <div class="stat-icon avg">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+                                    <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="revenue-stat-value" id="rev-avg">$0</span>
+                                <span class="revenue-stat-label">Daily Average</span>
+                            </div>
                         </div>
                         <div class="revenue-stat">
-                            <span class="revenue-stat-value" id="rev-high">$0</span>
-                            <span class="revenue-stat-label">Peak Day</span>
+                            <div class="stat-icon peak">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                    <polyline points="17 6 23 6 23 12"></polyline>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="revenue-stat-value" id="rev-high">$0</span>
+                                <span class="revenue-stat-label">Peak Day</span>
+                            </div>
                         </div>
                         <div class="revenue-stat">
-                            <span class="revenue-stat-value" id="rev-transactions">0</span>
-                            <span class="revenue-stat-label">Transactions</span>
+                            <div class="stat-icon transactions">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                                    <line x1="1" y1="10" x2="23" y2="10"></line>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="revenue-stat-value" id="rev-transactions">0</span>
+                                <span class="revenue-stat-label">Transactions</span>
+                            </div>
                         </div>
                     </div>
 
@@ -284,20 +316,58 @@
                 <section id="audience" class="dashboard-section">
                     <div class="audience-kpis">
                         <div class="audience-kpi">
-                            <span class="audience-kpi-value" id="total-customers">0</span>
-                            <span class="audience-kpi-label">Total Customers</span>
+                            <div class="stat-icon customers">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="audience-kpi-value" id="total-customers">0</span>
+                                <span class="audience-kpi-label">Total Customers</span>
+                            </div>
                         </div>
                         <div class="audience-kpi">
-                            <span class="audience-kpi-value" id="repeat-customers">0</span>
-                            <span class="audience-kpi-label">Repeat Customers</span>
+                            <div class="stat-icon repeat">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="17 1 21 5 17 9"></polyline>
+                                    <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+                                    <polyline points="7 23 3 19 7 15"></polyline>
+                                    <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="audience-kpi-value" id="repeat-customers">0</span>
+                                <span class="audience-kpi-label">Repeat Customers</span>
+                            </div>
                         </div>
                         <div class="audience-kpi highlight">
-                            <span class="audience-kpi-value" id="repeat-rate">0%</span>
-                            <span class="audience-kpi-label">Repeat Rate</span>
+                            <div class="stat-icon rate">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 20V10"></path>
+                                    <path d="M18 20V4"></path>
+                                    <path d="M6 20v-4"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="audience-kpi-value" id="repeat-rate">0%</span>
+                                <span class="audience-kpi-label">Repeat Rate</span>
+                            </div>
                         </div>
                         <div class="audience-kpi">
-                            <span class="audience-kpi-value" id="avg-spend">$0</span>
-                            <span class="audience-kpi-label">Avg. Spend</span>
+                            <div class="stat-icon spend">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path>
+                                    <path d="M12 18V6"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="audience-kpi-value" id="avg-spend">$0</span>
+                                <span class="audience-kpi-label">Avg. Spend</span>
+                            </div>
                         </div>
                     </div>
 
@@ -447,20 +517,52 @@
 
                     <div class="video-stats-row">
                         <div class="video-stat-card">
-                            <span class="video-stat-value" id="total-views">0</span>
-                            <span class="video-stat-label">Total Views</span>
+                            <div class="stat-icon views">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="video-stat-value" id="total-views">0</span>
+                                <span class="video-stat-label">Total Views</span>
+                            </div>
                         </div>
                         <div class="video-stat-card">
-                            <span class="video-stat-value" id="total-watch-time">0h</span>
-                            <span class="video-stat-label">Watch Time</span>
+                            <div class="stat-icon watchtime">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="video-stat-value" id="total-watch-time">0h</span>
+                                <span class="video-stat-label">Watch Time</span>
+                            </div>
                         </div>
                         <div class="video-stat-card">
-                            <span class="video-stat-value" id="avg-retention">0%</span>
-                            <span class="video-stat-label">Avg. Retention</span>
+                            <div class="stat-icon retention">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="video-stat-value" id="avg-retention">0%</span>
+                                <span class="video-stat-label">Avg. Retention</span>
+                            </div>
                         </div>
                         <div class="video-stat-card">
-                            <span class="video-stat-value" id="video-revenue">$0</span>
-                            <span class="video-stat-label">Video Revenue</span>
+                            <div class="stat-icon video-revenue">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="video-stat-value" id="video-revenue">$0</span>
+                                <span class="video-stat-label">Video Revenue</span>
+                            </div>
                         </div>
                     </div>
 
@@ -496,20 +598,53 @@
 
                     <div class="merch-summary">
                         <div class="merch-stat-card">
-                            <span class="merch-stat-value" id="merch-total-revenue">$0</span>
-                            <span class="merch-stat-label">Total Merch Revenue</span>
+                            <div class="stat-icon merch-revenue">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="merch-stat-value" id="merch-total-revenue">$0</span>
+                                <span class="merch-stat-label">Total Merch Revenue</span>
+                            </div>
                         </div>
                         <div class="merch-stat-card">
-                            <span class="merch-stat-value" id="merch-total-units">0</span>
-                            <span class="merch-stat-label">Units Sold</span>
+                            <div class="stat-icon units">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="merch-stat-value" id="merch-total-units">0</span>
+                                <span class="merch-stat-label">Units Sold</span>
+                            </div>
                         </div>
                         <div class="merch-stat-card">
-                            <span class="merch-stat-value" id="merch-avg-order">$0</span>
-                            <span class="merch-stat-label">Avg. Order Value</span>
+                            <div class="stat-icon avg-order">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="merch-stat-value" id="merch-avg-order">$0</span>
+                                <span class="merch-stat-label">Avg. Order Value</span>
+                            </div>
                         </div>
                         <div class="merch-stat-card">
-                            <span class="merch-stat-value" id="merch-top-item">-</span>
-                            <span class="merch-stat-label">Best Seller</span>
+                            <div class="stat-icon bestseller">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="merch-stat-value" id="merch-top-item">-</span>
+                                <span class="merch-stat-label">Best Seller</span>
+                            </div>
                         </div>
                     </div>
 
