@@ -2654,6 +2654,113 @@ a.leaderboard-item {
     .post-input {
         font-size: 16px;
     }
+
+    /* Profile badges grid - single column on mobile */
+    .badges-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .badge-item {
+        padding: 10px 14px;
+        gap: 10px;
+    }
+
+    .badge-emoji {
+        font-size: 24px;
+    }
+
+    .badge-name {
+        font-size: 13px;
+    }
+
+    .badge-date,
+    .badge-locked-text {
+        font-size: 11px;
+    }
+
+    /* Listening stats - 2 column on mobile */
+    .listening-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .listening-stat-card {
+        padding: 12px;
+    }
+
+    .listening-stat-value {
+        font-size: 20px;
+    }
+
+    .listening-stat-label {
+        font-size: 11px;
+    }
+
+    /* Playlists grid - single column */
+    .playlists-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Profile section padding */
+    .profile-section {
+        padding: 16px;
+    }
+
+    .profile-section-title {
+        font-size: 16px;
+    }
+
+    /* Favorite artist card */
+    .favorite-artist-card {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .favorite-artist-avatar {
+        width: 50px;
+        height: 50px;
+    }
+
+    .favorite-badge {
+        font-size: 10px;
+        padding: 4px 8px;
+    }
+
+    /* Communities grid - single column on mobile */
+    .communities-container {
+        grid-template-columns: 1fr;
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .community-banner {
+        height: 80px;
+    }
+
+    .community-content {
+        padding: 12px;
+    }
+
+    /* Suggested artists mobile adjustments */
+    .suggested-artist-item {
+        padding: 10px;
+    }
+
+    .suggested-artist-avatar {
+        width: 42px;
+        height: 42px;
+    }
+
+    /* Artist discover cards - single column on small mobile */
+    .artist-discover-card {
+        padding: 16px 14px;
+    }
+
+    .artist-card-avatar {
+        width: 60px;
+        height: 60px;
+    }
 }
 
 /* Extra small devices */
@@ -2698,6 +2805,52 @@ a.leaderboard-item {
 
     .event-details h3 {
         font-size: 14px;
+    }
+
+    /* Listening stats - 2x2 on extra small */
+    .listening-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .listening-stat-card {
+        padding: 10px;
+    }
+
+    .listening-stat-value {
+        font-size: 18px;
+    }
+
+    /* Genre grid - 2 column on extra small */
+    .genre-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .genre-card {
+        padding: 14px 10px;
+    }
+
+    .genre-icon {
+        font-size: 24px;
+    }
+
+    /* Profile section - tighter padding */
+    .profile-section {
+        padding: 12px;
+    }
+
+    .profile-section-title {
+        font-size: 15px;
+    }
+
+    /* Badges grid extra small */
+    .badges-grid {
+        gap: 8px;
+    }
+
+    .badge-item {
+        padding: 8px 12px;
     }
 }
 

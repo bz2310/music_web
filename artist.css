@@ -942,6 +942,27 @@
         font-size: 11px;
     }
 
+    /* Artist badges - wrap and center on mobile */
+    .artist-badges {
+        justify-content: center;
+        gap: 6px;
+        margin-top: 10px;
+    }
+
+    .artist-badge {
+        padding: 5px 10px;
+        font-size: 12px;
+        gap: 4px;
+    }
+
+    .artist-badge-emoji {
+        font-size: 12px;
+    }
+
+    .artist-bio {
+        max-width: 100%;
+    }
+
     /* Action buttons - stack on mobile */
     .artist-action-buttons {
         position: static;
@@ -960,6 +981,29 @@
         width: 100%;
         padding: 12px;
         justify-content: center;
+    }
+
+    .action-buttons-row {
+        width: 100%;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .support-artist-btn,
+    .message-artist-btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .artist-action-buttons .supporter-signals {
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .relationship-signal {
+        font-size: 12px;
+        padding: 6px 12px;
     }
 
     /* Tabs - scrollable */
