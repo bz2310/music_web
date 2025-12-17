@@ -64,12 +64,16 @@ const LaunchpadUI = {
         const artist = LaunchpadDB.getFeaturedArtist();
         if (!artist) return;
 
+        const user = LaunchpadDB.currentUser;
+        const relationship = user.supportRelationships && user.supportRelationships[artist.id];
+        const isSupporting = relationship && relationship.isSupporter;
+
         container.innerHTML = `
             <div class="home-featured-header">
                 <h3>Your Favorite Artist</h3>
                 <a href="#" class="see-all-link" data-section="explore">Explore More</a>
             </div>
-            <a href="${artist.profileUrl}" class="featured-artist-card home-featured-card">
+            <div class="featured-artist-card home-featured-card" data-href="${artist.profileUrl}">
                 <div class="featured-artist-banner" style="background: ${artist.bannerGradient};">
                     <img src="${artist.avatar}" alt="${artist.name}" class="featured-artist-avatar">
                 </div>
@@ -77,13 +81,63 @@ const LaunchpadUI = {
                     <h3>${artist.name} ${artist.verified ? '<span class="verified-small">✓</span>' : ''}</h3>
                     <p class="featured-artist-bio">${artist.bio}</p>
                     <div class="featured-artist-stats">
-                        <span><strong>${artist.stats.listeners}</strong> listeners</span>
-                        <span><strong>+${artist.stats.weeklyGrowth}%</strong> this week</span>
+                        <span><strong>${artist.stats.supporters}</strong> supporters</span>
                     </div>
-                    <button class="follow-btn-small following-btn">Following</button>
+                    ${this.renderSupporterRelationship(artist.id)}
+                    <a href="membership.html?artist=${artist.id}" class="support-btn-small ${isSupporting ? 'supporting-btn' : ''}">${isSupporting ? 'Supporting' : 'Support'}</a>
                 </div>
-            </a>
+            </div>
         `;
+    },
+
+    // Render supporter relationship signal (single, most relevant one)
+    renderSupporterRelationship(artistId) {
+        const user = LaunchpadDB.currentUser;
+        const relationship = user.supportRelationships && user.supportRelationships[artistId];
+        if (!relationship || !relationship.isSupporter) return '';
+
+        // Pick the most relevant signal (priority: early supporter > releases > milestones)
+        let signal = '';
+        if (relationship.isEarlySupporter) {
+            signal = `Early supporter since ${relationship.supporterSince}`;
+        } else if (relationship.releasesSupported > 0) {
+            signal = `Supported ${relationship.releasesSupported} release${relationship.releasesSupported > 1 ? 's' : ''}`;
+        } else if (relationship.milestonesUnlocked > 0) {
+            signal = `Unlocked ${relationship.milestonesUnlocked} milestone${relationship.milestonesUnlocked > 1 ? 's' : ''} together`;
+        }
+
+        if (!signal) return '';
+
+        return `<span class="relationship-signal">✨ ${signal}</span>`;
+    },
+
+    // Render user badges for profile
+    renderUserBadges(userBadges) {
+        if (!userBadges || !LaunchpadDB.badgeDefinitions) return '';
+
+        const definitions = LaunchpadDB.badgeDefinitions;
+        let html = '';
+
+        Object.keys(userBadges).forEach(badgeKey => {
+            const badge = userBadges[badgeKey];
+            const definition = definitions[badgeKey];
+            if (!definition) return;
+
+            const isEarned = badge.earned;
+            const badgeClass = isEarned ? 'badge-earned' : 'badge-locked';
+
+            html += `
+                <div class="badge-item ${badgeClass}" title="${definition.description}">
+                    <span class="badge-emoji">${definition.emoji}</span>
+                    <div class="badge-info">
+                        <span class="badge-name">${definition.name}</span>
+                        ${isEarned ? `<span class="badge-date">Earned ${badge.earnedDate}</span>` : '<span class="badge-locked-text">Locked</span>'}
+                    </div>
+                </div>
+            `;
+        });
+
+        return html;
     },
 
     // Render Quick Discover section
@@ -102,12 +156,11 @@ const LaunchpadUI = {
         `;
 
         artists.forEach(artist => {
-            const growthIcon = artist.stats.weeklyGrowth >= 50 ? '🔥' : '📈';
             html += `
                 <a href="${artist.profileUrl}" class="quick-artist-card">
                     <img src="${artist.avatar}" alt="${artist.name}" class="quick-artist-avatar">
                     <span class="quick-artist-name">${artist.name}</span>
-                    <span class="quick-artist-badge">${growthIcon} +${artist.stats.weeklyGrowth}%</span>
+                    <span class="quick-artist-badge">💜 ${artist.stats.supporters} supporters</span>
                 </a>
             `;
         });
@@ -240,8 +293,12 @@ const LaunchpadUI = {
         const artist = LaunchpadDB.getFeaturedArtist();
         if (!artist) return;
 
+        const user = LaunchpadDB.currentUser;
+        const relationship = user.supportRelationships && user.supportRelationships[artist.id];
+        const isSupporting = relationship && relationship.isSupporter;
+
         container.innerHTML = `
-            <a href="${artist.profileUrl}" class="featured-artist-card">
+            <div class="featured-artist-card home-featured-card" data-href="${artist.profileUrl}">
                 <div class="featured-artist-banner" style="background: ${artist.bannerGradient};">
                     <img src="${artist.avatar}" alt="${artist.name}" class="featured-artist-avatar">
                 </div>
@@ -249,12 +306,12 @@ const LaunchpadUI = {
                     <h3>${artist.name} ${artist.verified ? '<span class="verified-small">✓</span>' : ''}</h3>
                     <p class="featured-artist-bio">${artist.bio}</p>
                     <div class="featured-artist-stats">
-                        <span><strong>${artist.stats.listeners}</strong> listeners</span>
-                        <span><strong>+${artist.stats.weeklyGrowth}%</strong> this week</span>
+                        <span><strong>${artist.stats.supporters}</strong> supporters</span>
                     </div>
-                    <button class="follow-btn-small">Follow</button>
+                    ${this.renderSupporterRelationship(artist.id)}
+                    <a href="membership.html?artist=${artist.id}" class="support-btn-small ${isSupporting ? 'supporting-btn' : ''}">${isSupporting ? 'Supporting' : 'Support'}</a>
                 </div>
-            </a>
+            </div>
         `;
     },
 
@@ -286,14 +343,15 @@ const LaunchpadUI = {
         let html = '';
 
         artists.forEach(artist => {
-            const growthIcon = artist.stats.weeklyGrowth >= 50 ? '🔥' : '📈';
+            const risingContext = artist.risingReason ? `<span class="rising-context">📣 ${artist.risingReason}</span>` : '';
             html += `
                 <div class="artist-discover-card">
                     <img src="${artist.avatar}" alt="${artist.name}" class="artist-card-avatar">
                     <h4>${artist.name}</h4>
                     <p class="artist-card-genre">${artist.genres.join(' / ')}</p>
-                    <p class="artist-card-growth">${growthIcon} +${artist.stats.weeklyGrowth}% this week</p>
-                    <button class="follow-btn-small">Follow</button>
+                    <p class="artist-card-supporters">💜 ${artist.stats.supporters} supporters</p>
+                    ${risingContext}
+                    <a href="membership.html?artist=${artist.id}" class="support-btn-small">Support</a>
                 </div>
             `;
         });
@@ -315,9 +373,9 @@ const LaunchpadUI = {
                     <img src="${artist.avatar}" alt="${artist.name}" class="suggested-artist-avatar">
                     <div class="suggested-artist-info">
                         <h4>${artist.name}</h4>
-                        <p>Similar to ${artist.similarTo} • ${artist.stats.listeners} listeners</p>
+                        <p>Similar to ${artist.similarTo} • ${artist.stats.supporters} supporters</p>
                     </div>
-                    <button class="follow-btn-small">Follow</button>
+                    <a href="membership.html?artist=${artist.id}" class="support-btn-small">Support</a>
                 </div>
             `;
         });
@@ -531,6 +589,14 @@ const LaunchpadUI = {
                     </div>
                 </div>
 
+                <!-- Fan Badges -->
+                <div class="profile-section">
+                    <h3 class="profile-section-title">Fan Badges</h3>
+                    <div class="badges-grid">
+                        ${this.renderUserBadges(user.badges)}
+                    </div>
+                </div>
+
                 <!-- Favorite Artist -->
                 ${favoriteArtist ? `
                 <div class="profile-section">
@@ -539,7 +605,8 @@ const LaunchpadUI = {
                         <img src="${favoriteArtist.avatar}" alt="${favoriteArtist.name}" class="favorite-artist-avatar">
                         <div class="favorite-artist-info">
                             <h4>${favoriteArtist.name} ${favoriteArtist.verified ? '<span class="verified-small">✓</span>' : ''}</h4>
-                            <p>${favoriteArtist.stats.listeners} listeners</p>
+                            <p>${favoriteArtist.stats.supporters} supporters</p>
+                            ${this.renderSupporterRelationship(favoriteArtist.id)}
                         </div>
                         <span class="favorite-badge">Top Artist</span>
                     </a>
@@ -767,6 +834,7 @@ const LaunchpadUI = {
         let discoverHtml = '';
         leaderboard.discover.forEach((artist, index) => {
             const isHot = index < 2 || artist.stats.weeklyGrowth >= 80;
+            const risingContext = artist.risingReason ? `<span class="leaderboard-rising-context">📣 ${artist.risingReason}</span>` : '';
 
             discoverHtml += `
                 <div class="leaderboard-item">
@@ -775,10 +843,10 @@ const LaunchpadUI = {
                     <div class="leaderboard-info">
                         <p class="leaderboard-name">${artist.name}</p>
                         <p class="leaderboard-handle">${artist.handle}</p>
+                        ${risingContext}
                     </div>
-                    <div class="leaderboard-growth positive">
-                        ${this.icons.arrowUp}
-                        +${artist.stats.weeklyGrowth}%
+                    <div class="leaderboard-stats">
+                        <span class="leaderboard-supporters">💜 ${artist.stats.supporters}</span>
                     </div>
                 </div>
             `;
@@ -831,6 +899,14 @@ const LaunchpadUI = {
                 // Trigger nav click
                 const navItem = document.querySelector(`.nav-item[data-section="${targetSection}"]`);
                 if (navItem) navItem.click();
+            }
+        });
+
+        // Handle clickable cards with data-href (excluding clicks on buttons/links inside)
+        document.addEventListener('click', (e) => {
+            const card = e.target.closest('[data-href]');
+            if (card && !e.target.closest('a, button')) {
+                window.location.href = card.dataset.href;
             }
         });
 

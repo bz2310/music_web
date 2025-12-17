@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Artist | Launchpad</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="artist.css">
+    <style>
+        .membership-page {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .membership-hero {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .membership-hero .artist-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid var(--primary);
+            margin-bottom: 24px;
+        }
+
+        .membership-hero h1 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .membership-hero .tagline {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto 24px;
+        }
+
+        .creation-message {
+            background: linear-gradient(135deg, rgba(139, 43, 255, 0.1) 0%, rgba(179, 102, 255, 0.05) 100%);
+            border: 1px solid rgba(139, 43, 255, 0.3);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 40px;
+        }
+
+        .creation-message h2 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--primary-light);
+        }
+
+        .creation-message p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .funding-breakdown {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .funding-item {
+            text-align: center;
+            padding: 16px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+        }
+
+        .funding-item .icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .funding-item .label {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .tiers-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .tier-card {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .tier-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+        }
+
+        .tier-card.featured {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, rgba(139, 43, 255, 0.1) 0%, var(--bg-secondary) 100%);
+        }
+
+        .tier-card .tier-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--primary);
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .tier-card h3 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .tier-card .price {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-light);
+        }
+
+        .tier-card .price span {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        .tier-card .impact-statement {
+            margin: 20px 0;
+            padding: 16px;
+            background: rgba(139, 43, 255, 0.1);
+            border-radius: 12px;
+            font-size: 14px;
+            color: var(--primary-light);
+        }
+
+        .tier-card ul {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .tier-card ul li {
+            padding: 8px 0;
+            font-size: 14px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .tier-card ul li::before {
+            content: "✓";
+            color: var(--primary-light);
+            font-weight: 600;
+        }
+
+        .tier-card .join-btn {
+            width: 100%;
+            padding: 16px 24px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            border: none;
+            border-radius: 24px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-transform: none;
+            letter-spacing: 0.3px;
+        }
+
+        .tier-card .join-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(139, 43, 255, 0.4);
+        }
+
+        .tier-card.featured .join-btn {
+            background: linear-gradient(135deg, var(--primary-light) 0%, #d4a3ff 100%);
+        }
+
+        .supporter-community {
+            text-align: center;
+            padding: 40px;
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            margin-bottom: 40px;
+        }
+
+        .supporter-community h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .supporter-community p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .supporter-avatars {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+
+        .supporter-avatars img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--bg-secondary);
+            margin-left: -12px;
+        }
+
+        .supporter-avatars img:first-child {
+            margin-left: 0;
+        }
+
+        .supporter-count {
+            font-size: 14px;
+            color: var(--primary-light);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-bottom: 24px;
+            font-size: 14px;
+        }
+
+        .back-link:hover {
+            color: var(--primary-light);
+        }
+
+        @media (max-width: 768px) {
+            .tiers-container {
+                grid-template-columns: 1fr;
+            }
+
+            .funding-breakdown {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container mobile-friendly">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <rect x="4" y="12" width="8" height="16" fill="#b366ff"/>
+                    <rect x="12" y="4" width="8" height="24" fill="#8b2bff"/>
+                    <rect x="20" y="8" width="8" height="20" fill="#b366ff"/>
+                </svg>
+                <span>Launchpad</span>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-item" data-section="home">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    <span>Home</span>
+                </a>
+
+                <a href="index.html#explore" class="nav-item" data-section="explore">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <span>Explore</span>
+                </a>
+
+                <a href="index.html#profile" class="nav-item" data-section="profile">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <span>Profile</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content" style="grid-column: span 2;">
+            <div class="membership-page">
+                <a href="artist.html" class="back-link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Back to Jeremy Elliot
+                </a>
+
+                <div class="membership-hero">
+                    <img src="jeremy-elliot-profile.jpg" alt="Jeremy Elliot" class="artist-avatar">
+                    <h1>Support Jeremy Elliot</h1>
+                    <p class="tagline">Be part of the creative journey. Your support directly funds new music, videos, and live experiences.</p>
+                </div>
+
+                <div class="creation-message">
+                    <h2>Why Your Support Matters</h2>
+                    <p>Every month, your contribution goes directly toward creating new music. No middlemen, no algorithms deciding what gets made. Just you and me, building something together. Your support has already helped fund the "II" EP, two music videos, and an acoustic tour.</p>
+
+                    <div class="funding-breakdown">
+                        <div class="funding-item">
+                            <div class="icon">🎵</div>
+                            <div class="label">Studio Time & Production</div>
+                        </div>
+                        <div class="funding-item">
+                            <div class="icon">🎬</div>
+                            <div class="label">Music Videos & Visuals</div>
+                        </div>
+                        <div class="funding-item">
+                            <div class="icon">🎤</div>
+                            <div class="label">Live Shows & Tours</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tiers-container">
+                    <div class="tier-card">
+                        <h3>Supporters</h3>
+                        <div class="price">$10<span>/month</span></div>
+
+                        <div class="impact-statement">
+                            Your $10/month helps fund studio time, production, and new recordings
+                        </div>
+
+                        <ul>
+                            <li>Early access to new releases (48 hours)</li>
+                            <li>Monthly behind-the-scenes of the creative process</li>
+                            <li>Supporter-only Discord to follow the journey</li>
+                            <li>Your name in supporter credits</li>
+                            <li>Vote on song selections for live shows</li>
+                        </ul>
+
+                        <button class="join-btn">Become a Supporter</button>
+                    </div>
+
+                    <div class="tier-card featured">
+                        <span class="tier-badge">Most Impact</span>
+                        <h3>Superfans</h3>
+                        <div class="price">$30<span>/month</span></div>
+
+                        <div class="impact-statement">
+                            Your $30/month directly funds music videos, touring, and bigger productions
+                        </div>
+
+                        <ul>
+                            <li>Everything in Supporters tier</li>
+                            <li>Weekly acoustic sessions & unreleased demos</li>
+                            <li>Monthly live calls — share ideas, give feedback</li>
+                            <li>Name in official album credits</li>
+                            <li>Vote on creative decisions (cover art, tracklist)</li>
+                            <li>First access to concert tickets</li>
+                            <li>Direct messaging with Jeremy</li>
+                        </ul>
+
+                        <button class="join-btn">Support as Superfan</button>
+                    </div>
+                </div>
+
+                <div class="supporter-community">
+                    <h3>Join 12,400+ Supporters</h3>
+                    <p>Be part of a community that's actively shaping new music</p>
+                    <div class="supporter-avatars">
+                        <img src="https://i.pravatar.cc/40?img=1" alt="Supporter">
+                        <img src="https://i.pravatar.cc/40?img=2" alt="Supporter">
+                        <img src="https://i.pravatar.cc/40?img=3" alt="Supporter">
+                        <img src="https://i.pravatar.cc/40?img=4" alt="Supporter">
+                        <img src="https://i.pravatar.cc/40?img=5" alt="Supporter">
+                        <img src="https://i.pravatar.cc/40?img=6" alt="Supporter">
+                    </div>
+                    <span class="supporter-count">12.4K supporters and growing</span>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

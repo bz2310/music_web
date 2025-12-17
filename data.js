@@ -87,6 +87,25 @@ const LaunchpadDB = {
             topArtist: 'artist_001',
             streakDays: 45
         },
+        // Support relationships with artists
+        supportRelationships: {
+            'artist_001': {
+                isSupporter: true,
+                membershipTier: 'Superfans',
+                supporterSince: 'March 2023',
+                releasesSupported: 2,
+                milestonesUnlocked: 1,
+                isEarlySupporter: true
+            },
+            'artist_002': {
+                isSupporter: true,
+                membershipTier: 'Supporters',
+                supporterSince: 'August 2024',
+                releasesSupported: 1,
+                milestonesUnlocked: 0,
+                isEarlySupporter: false
+            }
+        },
         // Recent activity
         recentActivity: [
             { type: 'playlist_created', content: 'Created playlist "Morning Vibes"', timestamp: '2 days ago' },
@@ -94,6 +113,47 @@ const LaunchpadDB = {
             { type: 'liked', content: 'Liked "II - EP" by Jeremy Elliot', timestamp: '1 week ago' },
             { type: 'shared', content: 'Shared "Neon Dreams" to your story', timestamp: '1 week ago' }
         ],
+        // Fan badges earned
+        badges: {
+            // Core Identity Badges
+            earlySupporter: {
+                earned: true,
+                earnedDate: 'March 2023',
+                artistIds: ['artist_001']
+            },
+            foundingListener: {
+                earned: true,
+                earnedDate: 'March 2023',
+                artistIds: ['artist_001']
+            },
+            milestoneUnlocker: {
+                earned: true,
+                earnedDate: 'June 2024',
+                count: 1
+            },
+            // Contribution Badges
+            communityVoice: {
+                earned: true,
+                earnedDate: 'September 2024',
+                artistIds: ['artist_001']
+            },
+            showSupporter: {
+                earned: true,
+                earnedDate: 'November 2024',
+                eventCount: 2
+            },
+            btsCircle: {
+                earned: true,
+                earnedDate: 'April 2024',
+                artistIds: ['artist_001']
+            },
+            // Taste & Signal Badge
+            tastemaker: {
+                earned: false,
+                earnedDate: null,
+                artistCount: 0
+            }
+        },
         // Purchased content (merch, albums, tickets)
         purchases: [
             {
@@ -187,6 +247,96 @@ const LaunchpadDB = {
         ]
     },
 
+    // Badge definitions
+    badgeDefinitions: {
+        // Core Identity Badges
+        earlySupporter: {
+            id: 'earlySupporter',
+            name: 'Early Supporter',
+            emoji: '🌱',
+            category: 'Core Identity',
+            description: 'Supported an artist early in their journey'
+        },
+        foundingListener: {
+            id: 'foundingListener',
+            name: 'Founding Listener',
+            emoji: '🎧',
+            category: 'Core Identity',
+            description: "Supported an artist's first release on Launchpad"
+        },
+        milestoneUnlocker: {
+            id: 'milestoneUnlocker',
+            name: 'Milestone Unlocker',
+            emoji: '🔓',
+            category: 'Core Identity',
+            description: 'Participated in unlocking one or more release milestones'
+        },
+        // Contribution Badges
+        communityVoice: {
+            id: 'communityVoice',
+            name: 'Community Voice',
+            emoji: '💬',
+            category: 'Contribution',
+            description: 'Meaningful, consistent participation in artist communities'
+        },
+        showSupporter: {
+            id: 'showSupporter',
+            name: 'Show Supporter',
+            emoji: '📍',
+            category: 'Contribution',
+            description: 'Attended a live event tied to Launchpad'
+        },
+        btsCircle: {
+            id: 'btsCircle',
+            name: 'BTS Circle',
+            emoji: '🎥',
+            category: 'Contribution',
+            description: 'Accessed behind-the-scenes / inner-circle content'
+        },
+        // Taste & Signal Badge
+        tastemaker: {
+            id: 'tastemaker',
+            name: 'Tastemaker',
+            emoji: '🎶',
+            category: 'Taste & Signal',
+            description: 'Known for backing multiple artists early who later crossed milestones'
+        }
+    },
+
+    // Artist badge definitions
+    artistBadgeDefinitions: {
+        verifiedArtist: {
+            id: 'verifiedArtist',
+            name: 'Verified Artist',
+            emoji: '✅',
+            description: 'Identity confirmed by Launchpad'
+        },
+        communityBacked: {
+            id: 'communityBacked',
+            name: 'Community-Backed',
+            emoji: '🚀',
+            description: 'Reached first supporter milestone with fans'
+        },
+        milestoneArtist: {
+            id: 'milestoneArtist',
+            name: 'Milestone Artist',
+            emoji: '🔓',
+            description: 'Unlocked one or more release milestones'
+        },
+        firstRelease: {
+            id: 'firstRelease',
+            name: 'First Release on Launchpad',
+            emoji: '🎬',
+            description: 'Chose Launchpad as the starting point for a release'
+        },
+        independentArtist: {
+            id: 'independentArtist',
+            name: 'Independent Artist',
+            emoji: '🧭',
+            description: 'Self-directed, no label affiliation'
+        }
+    },
+
     // Artists database
     artists: {
         'artist_001': {
@@ -199,6 +349,8 @@ const LaunchpadDB = {
             fullBio: 'From busking on NYC streets at 13 to a Grammy nomination with Justin Bieber\'s "Purpose" album.',
             bannerGradient: 'linear-gradient(135deg, #1a1a2e 0%, #8b2bff 100%)',
             stats: {
+                supporters: '12.4K',
+                supportersNum: 12400,
                 listeners: '847K',
                 listenersNum: 847000,
                 followers: '2.1M',
@@ -207,7 +359,34 @@ const LaunchpadDB = {
                 posts: 234
             },
             genres: ['Pop', 'R&B', 'Soul'],
-            profileUrl: 'artist.html'
+            risingReason: 'New EP release',
+            profileUrl: 'artist.html',
+            badges: {
+                verifiedArtist: {
+                    earned: true,
+                    earnedDate: 'January 2023'
+                },
+                communityBacked: {
+                    earned: true,
+                    earnedDate: 'March 2023',
+                    milestone: '1,000 supporters'
+                },
+                milestoneArtist: {
+                    earned: true,
+                    earnedDate: 'June 2024',
+                    count: 3
+                },
+                firstRelease: {
+                    earned: true,
+                    earnedDate: 'February 2023',
+                    releaseName: 'II - EP'
+                },
+                independentArtist: {
+                    earned: true,
+                    earnedDate: 'January 2023',
+                    optedIn: true
+                }
+            }
         },
         'artist_002': {
             id: 'artist_002',
@@ -218,6 +397,8 @@ const LaunchpadDB = {
             bio: 'Dreamy synth-pop artist from Los Angeles',
             bannerGradient: 'linear-gradient(135deg, #2d1b69 0%, #11998e 100%)',
             stats: {
+                supporters: '8.2K',
+                supportersNum: 8200,
                 listeners: '324K',
                 listenersNum: 324000,
                 followers: '890K',
@@ -226,6 +407,7 @@ const LaunchpadDB = {
                 posts: 156
             },
             genres: ['Electronic', 'Synth-pop'],
+            risingReason: 'New single drop',
             profileUrl: '#'
         },
         'artist_003': {
@@ -237,6 +419,8 @@ const LaunchpadDB = {
             bio: 'Electronic producer pushing boundaries',
             bannerGradient: 'linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%)',
             stats: {
+                supporters: '5.6K',
+                supportersNum: 5600,
                 listeners: '198K',
                 listenersNum: 198000,
                 followers: '456K',
@@ -245,6 +429,7 @@ const LaunchpadDB = {
                 posts: 89
             },
             genres: ['Electronic', 'House'],
+            risingReason: 'Collab announcement',
             profileUrl: '#'
         },
         'artist_004': {
@@ -256,6 +441,8 @@ const LaunchpadDB = {
             bio: 'Hip-hop beats and soulful rhythms',
             bannerGradient: 'linear-gradient(135deg, #333 0%, #8b2bff 100%)',
             stats: {
+                supporters: '4.1K',
+                supportersNum: 4100,
                 listeners: '156K',
                 listenersNum: 156000,
                 followers: '312K',
@@ -264,6 +451,7 @@ const LaunchpadDB = {
                 posts: 201
             },
             genres: ['Hip-Hop', 'R&B'],
+            risingReason: 'Vinyl pre-orders live',
             profileUrl: '#'
         },
         'artist_005': {
@@ -275,6 +463,8 @@ const LaunchpadDB = {
             bio: 'Futuristic electronic soundscapes',
             bannerGradient: 'linear-gradient(135deg, #ff006e 0%, #8338ec 100%)',
             stats: {
+                supporters: '2.8K',
+                supportersNum: 2800,
                 listeners: '89K',
                 listenersNum: 89000,
                 followers: '134K',
@@ -283,6 +473,7 @@ const LaunchpadDB = {
                 posts: 67
             },
             genres: ['Electronic', 'Synthwave'],
+            risingReason: 'Viral on TikTok',
             profileUrl: '#'
         },
         'artist_006': {
@@ -294,6 +485,8 @@ const LaunchpadDB = {
             bio: 'Soulful R&B with crystal clear vocals',
             bannerGradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
             stats: {
+                supporters: '3.4K',
+                supportersNum: 3400,
                 listeners: '112K',
                 listenersNum: 112000,
                 followers: '245K',
@@ -302,6 +495,7 @@ const LaunchpadDB = {
                 posts: 123
             },
             genres: ['R&B', 'Soul'],
+            risingReason: 'Featured on playlist',
             profileUrl: '#'
         },
         'artist_007': {
@@ -313,6 +507,8 @@ const LaunchpadDB = {
             bio: 'Heavy bass and electronic dance beats',
             bannerGradient: 'linear-gradient(135deg, #1a1a1a 0%, #00d4ff 100%)',
             stats: {
+                supporters: '1.9K',
+                supportersNum: 1900,
                 listeners: '78K',
                 listenersNum: 78000,
                 followers: '167K',
@@ -321,6 +517,7 @@ const LaunchpadDB = {
                 posts: 45
             },
             genres: ['EDM', 'House'],
+            risingReason: 'Festival announcement',
             profileUrl: '#'
         },
         'artist_008': {
@@ -332,6 +529,8 @@ const LaunchpadDB = {
             bio: 'Alternative rock with velvet smooth vocals',
             bannerGradient: 'linear-gradient(135deg, #232526 0%, #414345 100%)',
             stats: {
+                supporters: '2.1K',
+                supportersNum: 2100,
                 listeners: '67K',
                 listenersNum: 67000,
                 followers: '145K',
@@ -340,6 +539,7 @@ const LaunchpadDB = {
                 posts: 78
             },
             genres: ['Alternative Rock', 'Indie'],
+            risingReason: 'Album announcement',
             profileUrl: '#'
         },
         'artist_009': {
@@ -351,6 +551,8 @@ const LaunchpadDB = {
             bio: 'Atmospheric electronic music for late nights',
             bannerGradient: 'linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%)',
             stats: {
+                supporters: '3.8K',
+                supportersNum: 3800,
                 listeners: '124K',
                 listenersNum: 124000,
                 followers: '289K',
@@ -359,6 +561,7 @@ const LaunchpadDB = {
                 posts: 92
             },
             genres: ['Electronic', 'Ambient'],
+            risingReason: 'Live stream session',
             profileUrl: '#'
         },
         'artist_010': {
@@ -370,6 +573,8 @@ const LaunchpadDB = {
             bio: 'Energetic pop with explosive hooks',
             bannerGradient: 'linear-gradient(135deg, #f12711 0%, #f5af19 100%)',
             stats: {
+                supporters: '2.3K',
+                supportersNum: 2300,
                 listeners: '89K',
                 listenersNum: 89000,
                 followers: '198K',
@@ -378,6 +583,7 @@ const LaunchpadDB = {
                 posts: 134
             },
             genres: ['Pop', 'Dance'],
+            risingReason: 'Summer tour dates',
             profileUrl: '#'
         },
         'artist_011': {
@@ -389,6 +595,8 @@ const LaunchpadDB = {
             bio: 'City sounds and urban beats',
             bannerGradient: 'linear-gradient(135deg, #373b44 0%, #4286f4 100%)',
             stats: {
+                supporters: '6.2K',
+                supportersNum: 6200,
                 listeners: '201K',
                 listenersNum: 201000,
                 followers: '445K',
@@ -397,6 +605,7 @@ const LaunchpadDB = {
                 posts: 167
             },
             genres: ['Hip-Hop', 'Electronic'],
+            risingReason: 'Music video premiere',
             profileUrl: '#'
         },
         'artist_012': {
@@ -408,6 +617,8 @@ const LaunchpadDB = {
             bio: 'Ethereal soundscapes and dreamy melodies',
             bannerGradient: 'linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)',
             stats: {
+                supporters: '4.7K',
+                supportersNum: 4700,
                 listeners: '156K',
                 listenersNum: 156000,
                 followers: '334K',
@@ -416,6 +627,7 @@ const LaunchpadDB = {
                 posts: 89
             },
             genres: ['Ambient', 'Electronic'],
+            risingReason: 'New remix drop',
             profileUrl: '#'
         }
     },

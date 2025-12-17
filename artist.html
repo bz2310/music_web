@@ -102,27 +102,34 @@
                     <p class="artist-bio">Grammy-nominated singer-songwriter making music to heal. One song at a time. ✨ Second cousin of folk legend Ramblin' Jack Elliot. Debut EP "II" out now.</p>
                     <div class="artist-stats">
                         <div class="stat">
-                            <span class="stat-number">26K</span>
-                            <span class="stat-label">Followers</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">1.9K</span>
-                            <span class="stat-label">Following</span>
+                            <span class="stat-number">12.4K</span>
+                            <span class="stat-label">Supporters</span>
                         </div>
                         <div class="stat">
                             <span class="stat-number">35.5K</span>
                             <span class="stat-label">Monthly Listeners</span>
                         </div>
+                        <div class="stat">
+                            <span class="stat-number">26K</span>
+                            <span class="stat-label">Followers</span>
+                        </div>
                     </div>
+                    <div class="artist-badges" id="artist-badges-container"></div>
                 </div>
                 <div class="artist-action-buttons">
-                    <button class="follow-artist-btn">Follow</button>
-                    <a href="index.html#chat" class="message-artist-btn">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                        </svg>
-                        Message
-                    </a>
+                    <div class="action-buttons-row">
+                        <a href="membership.html?artist=artist_001" class="support-artist-btn">Support</a>
+                        <a href="index.html#chat" class="message-artist-btn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                            </svg>
+                            Message
+                        </a>
+                    </div>
+                    <!-- Supporter Relationship Signals -->
+                    <div class="supporter-signals" id="supporter-signals">
+                        <span class="relationship-signal">✨ Early supporter since March 2023</span>
+                    </div>
                 </div>
             </div>
 
@@ -625,13 +632,13 @@
 
             <!-- Membership Tiers -->
             <div class="membership-section">
-                <h3>Membership</h3>
-                <p class="membership-intro">Support Jeremy and get exclusive perks</p>
+                <h3>Fund New Music</h3>
+                <p class="membership-intro">Your support directly funds Jeremy's next creation. Be part of the journey from idea to release.</p>
 
                 <div class="membership-tier">
                     <div class="tier-header" onclick="this.parentElement.classList.toggle('expanded')">
                         <div class="tier-info">
-                            <span class="tier-name">Listeners</span>
+                            <span class="tier-name">Supporters</span>
                             <span class="tier-price">$10<span class="per-month">/month</span></span>
                         </div>
                         <svg class="tier-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -639,19 +646,19 @@
                         </svg>
                     </div>
                     <div class="tier-details">
+                        <p class="tier-impact">💜 Your $10/month helps fund studio time, production, and new recordings</p>
                         <ul>
-                            <li>Ad-free listening experience</li>
                             <li>Early access to new releases (48 hours)</li>
-                            <li>Monthly exclusive behind-the-scenes content</li>
-                            <li>Listeners-only Discord channel access</li>
-                            <li>10% discount on merch</li>
+                            <li>Monthly behind-the-scenes of the creative process</li>
+                            <li>Supporter-only Discord to follow the journey</li>
+                            <li>Your name in supporter credits</li>
                         </ul>
-                        <button class="tier-join-btn">Join Listeners</button>
+                        <button class="tier-join-btn" data-artist="artist_001" data-tier="supporters">Become a Supporter</button>
                     </div>
                 </div>
 
                 <div class="membership-tier featured">
-                    <div class="tier-badge">Most Popular</div>
+                    <div class="tier-badge">Most Impact</div>
                     <div class="tier-header" onclick="this.parentElement.classList.toggle('expanded')">
                         <div class="tier-info">
                             <span class="tier-name">Superfans</span>
@@ -662,17 +669,17 @@
                         </svg>
                     </div>
                     <div class="tier-details">
+                        <p class="tier-impact">💜 Your $30/month directly funds music videos, touring, and bigger productions</p>
                         <ul>
-                            <li>Everything in Listeners tier</li>
-                            <li>Weekly exclusive acoustic sessions & demos</li>
-                            <li>Monthly live Q&A video calls with Jeremy</li>
-                            <li>Name in album credits</li>
-                            <li>Priority access to concert tickets</li>
-                            <li>25% discount on merch</li>
-                            <li>Signed digital artwork each month</li>
-                            <li>Direct messaging access</li>
+                            <li>Everything in Supporters tier</li>
+                            <li>Weekly acoustic sessions & unreleased demos</li>
+                            <li>Monthly live calls — share ideas, give feedback</li>
+                            <li>Name in official album credits</li>
+                            <li>Vote on creative decisions (cover art, tracklist order)</li>
+                            <li>First access to concert tickets</li>
+                            <li>Direct messaging with Jeremy</li>
                         </ul>
-                        <button class="tier-join-btn">Join Superfans</button>
+                        <button class="tier-join-btn" data-artist="artist_001" data-tier="superfans">Support as Superfan</button>
                     </div>
                 </div>
             </div>
@@ -680,53 +687,13 @@
             <!-- Similar Artists -->
             <div class="similar-artists-section">
                 <h3>Similar Artists</h3>
-                <div class="similar-artists">
-                    <a href="#" class="similar-artist">
-                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=artist1" alt="Luna Eclipse" class="similar-avatar">
-                        <div class="similar-info">
-                            <h4>Luna Eclipse</h4>
-                            <p>182K followers</p>
-                        </div>
-                        <button class="follow-small-btn">Follow</button>
-                    </a>
-                    <a href="#" class="similar-artist">
-                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=artist2" alt="Sonic Wave" class="similar-avatar">
-                        <div class="similar-info">
-                            <h4>Sonic Wave</h4>
-                            <p>156K followers</p>
-                        </div>
-                        <button class="follow-small-btn">Follow</button>
-                    </a>
-                    <a href="#" class="similar-artist">
-                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=artist3" alt="Rhythm King" class="similar-avatar">
-                        <div class="similar-info">
-                            <h4>Rhythm King</h4>
-                            <p>234K followers</p>
-                        </div>
-                        <button class="follow-small-btn">Follow</button>
-                    </a>
-                    <a href="#" class="similar-artist">
-                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=artist4" alt="Echo Sound" class="similar-avatar">
-                        <div class="similar-info">
-                            <h4>Echo Sound</h4>
-                            <p>98K followers</p>
-                        </div>
-                        <button class="follow-small-btn">Follow</button>
-                    </a>
-                    <a href="#" class="similar-artist">
-                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=artist5" alt="Neon Pulse" class="similar-avatar">
-                        <div class="similar-info">
-                            <h4>Neon Pulse</h4>
-                            <p>121K followers</p>
-                        </div>
-                        <button class="follow-small-btn">Follow</button>
-                    </a>
-                </div>
+                <div class="similar-artists" id="similar-artists-container"></div>
                 <a href="#" class="show-more">Show more</a>
             </div>
         </aside>
     </div>
 
+    <script src="data.js"></script>
     <script src="artist.js"></script>
 </body>
 </html>

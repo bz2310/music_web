@@ -192,3 +192,90 @@ socialLinks.forEach(link => {
         // In production, this would send analytics data
     });
 });
+
+// Render Similar Artists from data
+function renderSimilarArtists() {
+    const container = document.getElementById('similar-artists-container');
+    if (!container || typeof LaunchpadDB === 'undefined') return;
+
+    // Get artists (excluding the current artist - artist_001)
+    const similarArtistIds = ['artist_002', 'artist_003', 'artist_004', 'artist_005', 'artist_006'];
+
+    let html = '';
+    similarArtistIds.forEach(artistId => {
+        const artist = LaunchpadDB.artists[artistId];
+        if (!artist) return;
+
+        html += `
+            <div class="similar-artist" data-href="${artist.profileUrl}">
+                <img src="${artist.avatar}" alt="${artist.name}" class="similar-avatar">
+                <div class="similar-info">
+                    <h4>${artist.name}</h4>
+                    <p>${artist.stats.supporters} supporters</p>
+                </div>
+                <a href="membership.html?artist=${artist.id}" class="support-small-btn">Support</a>
+            </div>
+        `;
+    });
+
+    container.innerHTML = html;
+
+    // Add click handlers for similar artist cards
+    container.querySelectorAll('.similar-artist[data-href]').forEach(card => {
+        card.addEventListener('click', (e) => {
+            if (!e.target.closest('a')) {
+                window.location.href = card.dataset.href;
+            }
+        });
+        card.style.cursor = 'pointer';
+    });
+}
+
+// Tier join button handlers
+function handleTierJoin(artistId, tier) {
+    // For now, navigate to membership page
+    // This can be replaced with custom logic (modal, payment flow, etc.)
+    window.location.href = `membership.html?artist=${artistId}&tier=${tier}`;
+}
+
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('tier-join-btn')) {
+        const artistId = e.target.dataset.artist;
+        const tier = e.target.dataset.tier;
+        handleTierJoin(artistId, tier);
+    }
+});
+
+// Render Artist Badges from data
+function renderArtistBadges() {
+    const container = document.getElementById('artist-badges-container');
+    if (!container || typeof LaunchpadDB === 'undefined') return;
+
+    const artist = LaunchpadDB.artists['artist_001'];
+    if (!artist || !artist.badges) return;
+
+    const definitions = LaunchpadDB.artistBadgeDefinitions;
+    if (!definitions) return;
+
+    let html = '';
+    Object.keys(artist.badges).forEach(badgeKey => {
+        const badge = artist.badges[badgeKey];
+        const definition = definitions[badgeKey];
+        if (!definition || !badge.earned) return;
+
+        html += `
+            <span class="artist-badge" title="${definition.description}">
+                <span class="artist-badge-emoji">${definition.emoji}</span>
+                <span class="artist-badge-name">${definition.name}</span>
+            </span>
+        `;
+    });
+
+    container.innerHTML = html;
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', () => {
+    renderSimilarArtists();
+    renderArtistBadges();
+});
