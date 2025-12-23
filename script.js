@@ -83,20 +83,18 @@ const LaunchpadUI = {
                     <div class="featured-artist-stats">
                         <span><strong>${artist.stats.supporters}</strong> supporters</span>
                     </div>
-                    <div class="momentum-indicator momentum-compact">
-                        <div class="momentum-header">
-                            <div class="momentum-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-                                </svg>
-                            </div>
+                    <div class="momentum-wheel momentum-wheel-sm">
+                        <div class="momentum-circle">
+                            <svg viewBox="0 0 36 36">
+                                <path class="momentum-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                <path class="momentum-progress" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" stroke-dasharray="68, 100"/>
+                            </svg>
+                            <div class="momentum-value">68%</div>
+                        </div>
+                        <div class="momentum-info">
                             <span class="momentum-label">Momentum</span>
-                            <span class="momentum-percent">68%</span>
+                            <span class="momentum-target">toward <strong>15K</strong></span>
                         </div>
-                        <div class="momentum-bar">
-                            <div class="momentum-fill" style="width: 68%"></div>
-                        </div>
-                        <p class="momentum-text">toward <strong>15K Supporters</strong></p>
                     </div>
                     ${this.renderSupporterRelationship(artist.id)}
                     <a href="membership.html?artist=${artist.id}" class="support-btn-small ${isSupporting ? 'supporting-btn' : ''}">${isSupporting ? 'Supporting' : 'Support'}</a>
@@ -323,20 +321,18 @@ const LaunchpadUI = {
                     <div class="featured-artist-stats">
                         <span><strong>${artist.stats.supporters}</strong> supporters</span>
                     </div>
-                    <div class="momentum-indicator momentum-compact">
-                        <div class="momentum-header">
-                            <div class="momentum-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-                                </svg>
-                            </div>
+                    <div class="momentum-wheel momentum-wheel-sm">
+                        <div class="momentum-circle">
+                            <svg viewBox="0 0 36 36">
+                                <path class="momentum-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                <path class="momentum-progress" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" stroke-dasharray="68, 100"/>
+                            </svg>
+                            <div class="momentum-value">68%</div>
+                        </div>
+                        <div class="momentum-info">
                             <span class="momentum-label">Momentum</span>
-                            <span class="momentum-percent">68%</span>
+                            <span class="momentum-target">toward <strong>15K</strong></span>
                         </div>
-                        <div class="momentum-bar">
-                            <div class="momentum-fill" style="width: 68%"></div>
-                        </div>
-                        <p class="momentum-text">toward <strong>15K Supporters</strong></p>
                     </div>
                     ${this.renderSupporterRelationship(artist.id)}
                     <a href="membership.html?artist=${artist.id}" class="support-btn-small ${isSupporting ? 'supporting-btn' : ''}">${isSupporting ? 'Supporting' : 'Support'}</a>
