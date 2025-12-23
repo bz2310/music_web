@@ -726,6 +726,26 @@ body {
     background-color: var(--primary-light);
 }
 
+.community-card.clickable {
+    position: relative;
+}
+
+.community-card.clickable::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 8px;
+    height: 8px;
+    background: #23a559;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(35, 165, 89, 0.5);
+}
+
+.community-card.clickable .community-btn {
+    background: linear-gradient(135deg, #8b2bff 0%, #5865f2 100%);
+}
+
 /* Profile */
 .profile-container {
     max-width: 700px;

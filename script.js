@@ -625,20 +625,37 @@ const LaunchpadUI = {
         let html = '';
 
         communities.forEach(comm => {
+            // Link Indie Producers to the Discord-style community page
+            const isIndieProducers = comm.id === 'comm_001';
+            const cardClass = isIndieProducers ? 'community-card clickable' : 'community-card';
+            const cardAttrs = isIndieProducers ? 'data-href="community.html"' : '';
+
             html += `
-                <div class="community-card">
+                <div class="${cardClass}" ${cardAttrs}>
                     <div class="community-banner" style="background: ${comm.banner};"></div>
                     <div class="community-content">
                         <h3>${comm.name}</h3>
                         <p>${comm.description}</p>
                         <p class="community-members">${comm.members} members</p>
-                        <button class="community-btn">Join</button>
+                        <button class="community-btn">${isIndieProducers ? 'Enter' : 'Join'}</button>
                     </div>
                 </div>
             `;
         });
 
         container.innerHTML = html;
+
+        // Add click handler for Indie Producers card
+        container.querySelectorAll('.community-card.clickable').forEach(card => {
+            card.addEventListener('click', (e) => {
+                if (!e.target.classList.contains('community-btn')) {
+                    window.location.href = card.dataset.href;
+                }
+            });
+            card.querySelector('.community-btn').addEventListener('click', () => {
+                window.location.href = card.dataset.href;
+            });
+        });
     },
 
     // Render Profile
