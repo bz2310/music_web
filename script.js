@@ -124,33 +124,115 @@ const LaunchpadUI = {
         return `<span class="relationship-signal">✨ ${signal}</span>`;
     },
 
-    // Render user badges for profile
-    renderUserBadges(userBadges) {
+    // Render user badges for profile (full section with progress)
+    renderUserBadges(userBadges, badgeProgress) {
         if (!userBadges || !LaunchpadDB.badgeDefinitions) return '';
 
         const definitions = LaunchpadDB.badgeDefinitions;
+        // Order by identity priority
+        const badgeOrder = ['earlySupporter', 'foundingListener', 'tastemaker', 'milestoneUnlocker', 'communityVoice', 'showSupporter', 'btsCircle'];
         let html = '';
+        let lockedProgressCount = 0;
+        const maxLockedProgress = 2;
 
-        Object.keys(userBadges).forEach(badgeKey => {
+        badgeOrder.forEach(badgeKey => {
             const badge = userBadges[badgeKey];
             const definition = definitions[badgeKey];
-            if (!definition) return;
+            if (!badge || !definition) return;
 
             const isEarned = badge.earned;
             const badgeClass = isEarned ? 'badge-earned' : 'badge-locked';
+            const progress = badgeProgress && badgeProgress[badgeKey];
+            const showProgress = !isEarned && progress && lockedProgressCount < maxLockedProgress;
+
+            if (showProgress) lockedProgressCount++;
 
             html += `
                 <div class="badge-item ${badgeClass}" title="${definition.description}">
                     <span class="badge-icon" style="--badge-color: ${definition.color}">${definition.icon}</span>
                     <div class="badge-info">
                         <span class="badge-name">${definition.name}</span>
-                        ${isEarned ? `<span class="badge-date">Earned ${badge.earnedDate}</span>` : '<span class="badge-locked-text">Locked</span>'}
+                        ${isEarned
+                            ? `<span class="badge-date">Earned ${badge.earnedDate}</span>`
+                            : showProgress
+                                ? `<span class="badge-progress-text">${progress.label}</span>
+                                   <div class="badge-progress-bar">
+                                       <div class="badge-progress-fill" style="width: ${(progress.current / progress.required) * 100}%"></div>
+                                   </div>`
+                                : '<span class="badge-locked-text">Locked</span>'
+                        }
                     </div>
                 </div>
             `;
         });
 
         return html;
+    },
+
+    // Render top badges preview (icons only, for under name)
+    renderTopBadgesPreview(userBadges) {
+        if (!userBadges || !LaunchpadDB.badgeDefinitions) return '';
+
+        const definitions = LaunchpadDB.badgeDefinitions;
+        // Order by identity priority - show top 3 earned
+        const badgeOrder = ['earlySupporter', 'foundingListener', 'tastemaker', 'milestoneUnlocker', 'showSupporter', 'btsCircle', 'communityVoice'];
+
+        const earnedBadges = badgeOrder
+            .filter(key => userBadges[key] && userBadges[key].earned && definitions[key])
+            .slice(0, 3);
+
+        if (earnedBadges.length === 0) return '';
+
+        let html = '<div class="top-badges-preview">';
+        earnedBadges.forEach(badgeKey => {
+            const definition = definitions[badgeKey];
+            html += `
+                <span class="top-badge-icon" style="--badge-color: ${definition.color}" title="${definition.name}">
+                    ${definition.icon}
+                </span>
+            `;
+        });
+        html += '<button class="view-all-badges-btn" data-action="scroll-to-badges">View all badges</button>';
+        html += '</div>';
+
+        return html;
+    },
+
+    // Render This Week's Impact section
+    renderWeeklyImpact(impact) {
+        if (!impact) return '';
+
+        return `
+            <div class="profile-section weekly-impact-section">
+                <h3 class="profile-section-title">This Week's Impact</h3>
+                <div class="impact-stats-list">
+                    <div class="impact-stat-item">
+                        <span class="impact-icon">💜</span>
+                        <span class="impact-text">You supported <strong>${impact.artistsSupported} artists</strong></span>
+                    </div>
+                    <div class="impact-stat-item">
+                        <span class="impact-icon">⚡</span>
+                        <span class="impact-text">+${impact.supportActions} support actions <span class="impact-highlight">(Top ${impact.fanPercentile}% of fans)</span></span>
+                    </div>
+                    ${impact.milestonesHelped > 0 ? `
+                    <div class="impact-stat-item">
+                        <span class="impact-icon">🔓</span>
+                        <span class="impact-text">Helped unlock <strong>${impact.milestonesHelped} milestone${impact.milestonesHelped > 1 ? 's' : ''}</strong></span>
+                    </div>
+                    ` : ''}
+                    <div class="impact-stat-item">
+                        <span class="impact-icon">🔥</span>
+                        <span class="impact-text"><strong>${impact.daysActive}/${impact.totalDays}</strong> days active</span>
+                    </div>
+                    ${impact.actionsToTastemaker > 0 ? `
+                    <div class="impact-stat-item impact-cta">
+                        <span class="impact-icon">→</span>
+                        <span class="impact-text">${impact.actionsToTastemaker} actions away from <strong>Tastemaker</strong></span>
+                    </div>
+                    ` : ''}
+                </div>
+            </div>
+        `;
     },
 
     // Render Quick Discover section
@@ -557,6 +639,7 @@ const LaunchpadUI = {
                 <div class="profile-info">
                     <h2>${user.name}</h2>
                     <p class="profile-handle">${user.handle}</p>
+                    ${this.renderTopBadgesPreview(user.badges)}
                     <p class="profile-bio">${user.bio}</p>
                     <div class="profile-meta">
                         <span class="profile-location">
@@ -611,11 +694,14 @@ const LaunchpadUI = {
                     </div>
                 </div>
 
+                <!-- This Week's Impact -->
+                ${this.renderWeeklyImpact(user.weeklyImpact)}
+
                 <!-- Fan Badges -->
-                <div class="profile-section">
+                <div class="profile-section" id="fan-badges-section">
                     <h3 class="profile-section-title">Fan Badges</h3>
                     <div class="badges-grid">
-                        ${this.renderUserBadges(user.badges)}
+                        ${this.renderUserBadges(user.badges, user.badgeProgress)}
                     </div>
                 </div>
 
@@ -1003,6 +1089,14 @@ const LaunchpadUI = {
             // Handle merch buttons
             if (e.target.classList.contains('merch-btn')) {
                 alert('Opening product details...');
+            }
+
+            // Handle view all badges button
+            if (e.target.classList.contains('view-all-badges-btn')) {
+                const badgesSection = document.getElementById('fan-badges-section');
+                if (badgesSection) {
+                    badgesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
             }
         });
 

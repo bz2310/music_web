@@ -86,6 +86,16 @@ const LaunchpadDB = {
             topArtist: 'artist_001',
             streakDays: 45
         },
+        // This week's impact stats
+        weeklyImpact: {
+            artistsSupported: 2,
+            supportActions: 6,
+            fanPercentile: 18,
+            milestonesHelped: 1,
+            daysActive: 7,
+            totalDays: 7,
+            actionsToTastemaker: 2
+        },
         // Support relationships with artists
         supportRelationships: {
             'artist_001': {
@@ -150,8 +160,15 @@ const LaunchpadDB = {
             tastemaker: {
                 earned: false,
                 earnedDate: null,
-                artistCount: 0
+                artistCount: 0,
+                progress: { current: 1, required: 3, label: '1 of 3 artists backed early' }
             }
+        },
+        // Badge progress for locked badges
+        badgeProgress: {
+            tastemaker: { current: 1, required: 3, label: '1 of 3 artists backed early' },
+            // Example of another progress item (already earned, so won't show)
+            showSupporter: { current: 2, required: 2, label: '2 shows attended' }
         },
         // Purchased content (merch, albums, tickets)
         purchases: [
