@@ -153,28 +153,20 @@
     letter-spacing: 0.2px;
 }
 
-/* Momentum Wheel */
-.momentum-wheel {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin: 14px 0;
-    padding: 10px 14px;
-    background: linear-gradient(135deg, rgba(139, 43, 255, 0.08) 0%, rgba(249, 115, 22, 0.06) 100%);
-    border: 1px solid rgba(139, 43, 255, 0.2);
-    border-radius: 12px;
-}
-
-.momentum-circle {
+/* Momentum Wheel - Inline with Stats */
+.momentum-stat {
     position: relative;
-    width: 52px;
-    height: 52px;
-    flex-shrink: 0;
 }
 
-.momentum-circle svg {
-    width: 52px;
-    height: 52px;
+.momentum-circle-inline {
+    position: relative;
+    width: 38px;
+    height: 38px;
+}
+
+.momentum-circle-inline svg {
+    width: 38px;
+    height: 38px;
     transform: rotate(-90deg);
 }
 
@@ -186,43 +178,24 @@
 
 .momentum-progress {
     fill: none;
-    stroke: url(#momentumGradient);
     stroke-width: 3;
     stroke-linecap: round;
     stroke: #f97316;
     filter: drop-shadow(0 0 4px rgba(249, 115, 22, 0.4));
 }
 
-.momentum-value {
+.momentum-circle-inline .momentum-value {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 12px;
+    font-size: 9px;
     font-weight: 700;
     color: #f97316;
 }
 
-.momentum-info {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-}
-
-.momentum-label {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text-primary);
-}
-
-.momentum-target {
-    font-size: 11px;
-    color: var(--text-secondary);
-}
-
-.momentum-target strong {
+.momentum-stat .stat-label {
     color: #f97316;
-    font-weight: 600;
 }
 
 .artist-action-buttons {
@@ -1035,33 +1008,19 @@
         font-size: 11px;
     }
 
-    /* Momentum wheel mobile */
-    .momentum-wheel {
-        justify-content: center;
-        margin: 12px auto;
-        padding: 8px 12px;
+    /* Momentum wheel inline mobile */
+    .momentum-circle-inline {
+        width: 32px;
+        height: 32px;
     }
 
-    .momentum-circle {
-        width: 44px;
-        height: 44px;
+    .momentum-circle-inline svg {
+        width: 32px;
+        height: 32px;
     }
 
-    .momentum-circle svg {
-        width: 44px;
-        height: 44px;
-    }
-
-    .momentum-value {
-        font-size: 11px;
-    }
-
-    .momentum-label {
-        font-size: 12px;
-    }
-
-    .momentum-target {
-        font-size: 10px;
+    .momentum-circle-inline .momentum-value {
+        font-size: 8px;
     }
 
     /* Artist badges - wrap and center on mobile */
