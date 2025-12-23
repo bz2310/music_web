@@ -539,7 +539,7 @@ const LaunchpadUI = {
 
         const user = LaunchpadDB.currentUser;
         const favoriteArtist = LaunchpadDB.getArtist(user.favoriteArtist);
-        const followedArtists = LaunchpadDB.getFollowedArtists();
+        const supportedArtists = LaunchpadDB.getSupportedArtists();
 
         // Format listening time
         const hours = Math.floor(user.listeningStats.totalMinutes / 60);
@@ -578,12 +578,8 @@ const LaunchpadUI = {
                     </div>
                     <div class="profile-stats">
                         <div class="stat">
-                            <span class="stat-number">${user.followers.toLocaleString()}</span>
-                            <span class="stat-label">Followers</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">${user.following.length}</span>
-                            <span class="stat-label">Following</span>
+                            <span class="stat-number">${user.supporting.length}</span>
+                            <span class="stat-label">Supporting</span>
                         </div>
                         <div class="stat">
                             <span class="stat-number">${user.playlists.length}</span>
@@ -740,14 +736,14 @@ const LaunchpadUI = {
                     </div>
                 </div>
 
-                <!-- Following Artists -->
+                <!-- Supporting Artists -->
                 <div class="profile-section">
                     <h3 class="profile-section-title">Artists You Support</h3>
-                    <div class="following-artists-grid">
-                        ${followedArtists.map(artist => `
-                            <a href="${artist.profileUrl}" class="following-artist-card">
-                                <img src="${artist.avatar}" alt="${artist.name}" class="following-artist-avatar">
-                                <span class="following-artist-name">${artist.name}</span>
+                    <div class="supporting-artists-grid">
+                        ${supportedArtists.map(artist => `
+                            <a href="${artist.profileUrl}" class="supporting-artist-card">
+                                <img src="${artist.avatar}" alt="${artist.name}" class="supporting-artist-avatar">
+                                <span class="supporting-artist-name">${artist.name}</span>
                             </a>
                         `).join('')}
                     </div>
@@ -780,7 +776,7 @@ const LaunchpadUI = {
             'playlist_created': `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M12 5v14M5 12h14"/>
             </svg>`,
-            'followed': `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            'supported': `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                 <circle cx="8.5" cy="7" r="4"></circle>
                 <line x1="20" y1="8" x2="20" y2="14"></line>
@@ -826,20 +822,20 @@ const LaunchpadUI = {
 
     // Render Leaderboard
     renderLeaderboard() {
-        const followingContainer = document.getElementById('leaderboard-following-container');
+        const supportingContainer = document.getElementById('leaderboard-supporting-container');
         const discoverContainer = document.getElementById('leaderboard-discover-container');
 
-        if (!followingContainer || !discoverContainer) return;
+        if (!supportingContainer || !discoverContainer) return;
 
         const leaderboard = LaunchpadDB.getLeaderboard();
 
-        // Render Following (Artists You Support)
-        let followingHtml = '';
-        leaderboard.followed.forEach((artist) => {
+        // Render Supporting (Artists You Support)
+        let supportingHtml = '';
+        leaderboard.supported.forEach((artist) => {
             const isFavorite = LaunchpadDB.currentUser.favoriteArtist === artist.id;
             const risingContext = artist.risingReason ? `<span class="leaderboard-rising-context">${artist.risingReason}</span>` : '';
 
-            followingHtml += `
+            supportingHtml += `
                 <${isFavorite ? 'a href="' + artist.profileUrl + '"' : 'div'} class="leaderboard-item">
                     <span class="leaderboard-rank hot">🔥</span>
                     <img src="${artist.avatar}" alt="${artist.name}" class="leaderboard-avatar">
@@ -854,7 +850,7 @@ const LaunchpadUI = {
                 </${isFavorite ? 'a' : 'div'}>
             `;
         });
-        followingContainer.innerHTML = followingHtml;
+        supportingContainer.innerHTML = supportingHtml;
 
         // Render Discover
         let discoverHtml = '';
@@ -999,9 +995,9 @@ const LaunchpadUI = {
                 }
             }
 
-            // Handle follow buttons
-            if (e.target.classList.contains('follow-btn-small') && !e.target.classList.contains('following-btn')) {
-                e.target.textContent = e.target.textContent === 'Follow' ? 'Following' : 'Follow';
+            // Handle support buttons
+            if (e.target.classList.contains('support-btn-small') && !e.target.classList.contains('supporting-btn')) {
+                e.target.textContent = e.target.textContent === 'Support' ? 'Supporting' : 'Support';
             }
 
             // Handle merch buttons

@@ -11,8 +11,7 @@ const LaunchpadDB = {
         bio: 'Music lover | Always discovering new artists | Pop & R&B enthusiast',
         location: 'Los Angeles, CA',
         joinedDate: 'March 2023',
-        following: ['artist_001', 'artist_002', 'artist_003', 'artist_004'],
-        followers: 1234,
+        supporting: ['artist_001', 'artist_002', 'artist_003', 'artist_004'],
         favoriteArtist: 'artist_001', // Jeremy Elliot
         preferences: {
             genres: ['Pop', 'R&B', 'Electronic'],
@@ -109,7 +108,7 @@ const LaunchpadDB = {
         // Recent activity
         recentActivity: [
             { type: 'playlist_created', content: 'Created playlist "Morning Vibes"', timestamp: '2 days ago' },
-            { type: 'followed', content: 'Started following Luna Eclipse', timestamp: '3 days ago' },
+            { type: 'supported', content: 'Started supporting Luna Eclipse', timestamp: '3 days ago' },
             { type: 'liked', content: 'Liked "II - EP" by Jeremy Elliot', timestamp: '1 week ago' },
             { type: 'shared', content: 'Shared "Neon Dreams" to your story', timestamp: '1 week ago' }
         ],
@@ -365,8 +364,6 @@ const LaunchpadDB = {
                 supportersNum: 12400,
                 listeners: '847K',
                 listenersNum: 847000,
-                followers: '2.1M',
-                followersNum: 2100000,
                 weeklyGrowth: 42.3,
                 posts: 234
             },
@@ -413,8 +410,6 @@ const LaunchpadDB = {
                 supportersNum: 8200,
                 listeners: '324K',
                 listenersNum: 324000,
-                followers: '890K',
-                followersNum: 890000,
                 weeklyGrowth: 24.5,
                 posts: 156
             },
@@ -435,8 +430,6 @@ const LaunchpadDB = {
                 supportersNum: 5600,
                 listeners: '198K',
                 listenersNum: 198000,
-                followers: '456K',
-                followersNum: 456000,
                 weeklyGrowth: 18.2,
                 posts: 89
             },
@@ -457,8 +450,6 @@ const LaunchpadDB = {
                 supportersNum: 4100,
                 listeners: '156K',
                 listenersNum: 156000,
-                followers: '312K',
-                followersNum: 312000,
                 weeklyGrowth: 12.8,
                 posts: 201
             },
@@ -479,8 +470,6 @@ const LaunchpadDB = {
                 supportersNum: 2800,
                 listeners: '89K',
                 listenersNum: 89000,
-                followers: '134K',
-                followersNum: 134000,
                 weeklyGrowth: 156,
                 posts: 67
             },
@@ -501,8 +490,6 @@ const LaunchpadDB = {
                 supportersNum: 3400,
                 listeners: '112K',
                 listenersNum: 112000,
-                followers: '245K',
-                followersNum: 245000,
                 weeklyGrowth: 89.3,
                 posts: 123
             },
@@ -523,8 +510,6 @@ const LaunchpadDB = {
                 supportersNum: 1900,
                 listeners: '78K',
                 listenersNum: 78000,
-                followers: '167K',
-                followersNum: 167000,
                 weeklyGrowth: 67.1,
                 posts: 45
             },
@@ -545,8 +530,6 @@ const LaunchpadDB = {
                 supportersNum: 2100,
                 listeners: '67K',
                 listenersNum: 67000,
-                followers: '145K',
-                followersNum: 145000,
                 weeklyGrowth: 52.4,
                 posts: 78
             },
@@ -567,8 +550,6 @@ const LaunchpadDB = {
                 supportersNum: 3800,
                 listeners: '124K',
                 listenersNum: 124000,
-                followers: '289K',
-                followersNum: 289000,
                 weeklyGrowth: 34.2,
                 posts: 92
             },
@@ -589,8 +570,6 @@ const LaunchpadDB = {
                 supportersNum: 2300,
                 listeners: '89K',
                 listenersNum: 89000,
-                followers: '198K',
-                followersNum: 198000,
                 weeklyGrowth: 28.7,
                 posts: 134
             },
@@ -611,8 +590,6 @@ const LaunchpadDB = {
                 supportersNum: 6200,
                 listeners: '201K',
                 listenersNum: 201000,
-                followers: '445K',
-                followersNum: 445000,
                 weeklyGrowth: 19.5,
                 posts: 167
             },
@@ -633,8 +610,6 @@ const LaunchpadDB = {
                 supportersNum: 4700,
                 listeners: '156K',
                 listenersNum: 156000,
-                followers: '334K',
-                followersNum: 334000,
                 weeklyGrowth: 22.1,
                 posts: 89
             },
@@ -801,9 +776,9 @@ const LaunchpadDB = {
         },
         {
             id: 'notif_002',
-            type: 'follow',
+            type: 'support',
             fromArtistId: 'artist_003',
-            message: 'started following you',
+            message: 'started supporting you',
             timestamp: '5 hours ago'
         },
         {
@@ -877,39 +852,39 @@ const LaunchpadDB = {
         return this.artists[user.favoriteArtist];
     },
 
-    getFollowedArtists(userId) {
+    getSupportedArtists(userId) {
         const user = this.currentUser;
-        return user.following.map(id => this.artists[id]).filter(Boolean);
+        return user.supporting.map(id => this.artists[id]).filter(Boolean);
     },
 
     getRisingStars() {
-        // Get artists not followed by user, sorted by growth
+        // Get artists not supported by user, sorted by growth
         const user = this.currentUser;
         return Object.values(this.artists)
-            .filter(a => !user.following.includes(a.id))
+            .filter(a => !user.supporting.includes(a.id))
             .sort((a, b) => b.stats.weeklyGrowth - a.stats.weeklyGrowth)
             .slice(0, 4);
     },
 
     getSuggestedArtists(userId) {
-        // Get artists similar to followed ones
+        // Get artists similar to supported ones
         const user = this.currentUser;
-        const followedGenres = new Set();
-        user.following.forEach(id => {
+        const supportedGenres = new Set();
+        user.supporting.forEach(id => {
             const artist = this.artists[id];
-            if (artist) artist.genres.forEach(g => followedGenres.add(g));
+            if (artist) artist.genres.forEach(g => supportedGenres.add(g));
         });
 
         return Object.values(this.artists)
-            .filter(a => !user.following.includes(a.id))
-            .filter(a => a.genres.some(g => followedGenres.has(g)))
+            .filter(a => !user.supporting.includes(a.id))
+            .filter(a => a.genres.some(g => supportedGenres.has(g)))
             .slice(0, 4)
             .map(artist => {
-                // Find which followed artist they're similar to
-                const similarTo = user.following
+                // Find which supported artist they're similar to
+                const similarTo = user.supporting
                     .map(id => this.artists[id])
                     .find(fa => fa && fa.genres.some(g => artist.genres.includes(g)));
-                return { ...artist, similarTo: similarTo?.name || 'Artists you follow' };
+                return { ...artist, similarTo: similarTo?.name || 'Artists you support' };
             });
     },
 
@@ -921,19 +896,19 @@ const LaunchpadDB = {
     },
 
     getFeedPosts(userId) {
-        // Get posts from followed artists, sorted by time
+        // Get posts from supported artists, sorted by time
         const user = this.currentUser;
         return this.posts
-            .filter(p => user.following.includes(p.artistId))
+            .filter(p => user.supporting.includes(p.artistId))
             .sort((a, b) => b.timestampDate - a.timestampDate);
     },
 
     getLeaderboard(userId) {
         const user = this.currentUser;
-        const followed = this.getFollowedArtists(userId)
+        const supported = this.getSupportedArtists(userId)
             .sort((a, b) => b.stats.weeklyGrowth - a.stats.weeklyGrowth);
         const discover = this.getRisingStars();
-        return { followed, discover };
+        return { supported, discover };
     }
 };
 

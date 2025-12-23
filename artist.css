@@ -248,7 +248,7 @@
     margin-top: 8px;
 }
 
-.follow-artist-btn {
+.support-artist-btn {
     padding: 10px 24px;
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
     color: var(--text-primary);
@@ -260,12 +260,12 @@
     transition: all 0.2s;
 }
 
-.follow-artist-btn:hover {
+.support-artist-btn:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 12px rgba(139, 43, 255, 0.3);
 }
 
-.follow-artist-btn.following {
+.support-artist-btn.supporting {
     background: transparent;
     border: 2px solid var(--primary);
     color: var(--primary-light);
@@ -906,7 +906,7 @@
     color: var(--text-secondary);
 }
 
-.follow-small-btn {
+.support-small-btn {
     padding: 6px 16px;
     background: transparent;
     color: var(--primary-light);
@@ -918,7 +918,7 @@
     transition: all 0.2s;
 }
 
-.follow-small-btn:hover {
+.support-small-btn:hover {
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
     color: white;
     border-color: transparent;
@@ -1093,7 +1093,7 @@
         margin-top: 12px;
     }
 
-    .follow-artist-btn {
+    .support-artist-btn {
         width: 100%;
         padding: 12px;
     }
@@ -1408,7 +1408,7 @@
         font-size: 12px;
     }
 
-    .follow-small-btn {
+    .support-small-btn {
         padding: 4px 10px;
         font-size: 11px;
     }

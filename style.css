@@ -1244,15 +1244,15 @@ body {
     flex-shrink: 0;
 }
 
-/* Following Artists Grid */
-.following-artists-grid {
+/* Supporting Artists Grid */
+.supporting-artists-grid {
     display: flex;
     gap: 16px;
     overflow-x: auto;
     padding-bottom: 8px;
 }
 
-.following-artist-card {
+.supporting-artist-card {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1262,11 +1262,11 @@ body {
     transition: transform 0.2s;
 }
 
-.following-artist-card:hover {
+.supporting-artist-card:hover {
     transform: translateY(-4px);
 }
 
-.following-artist-avatar {
+.supporting-artist-avatar {
     width: 64px;
     height: 64px;
     border-radius: 50%;
@@ -1276,11 +1276,11 @@ body {
     transition: border-color 0.2s;
 }
 
-.following-artist-card:hover .following-artist-avatar {
+.supporting-artist-card:hover .supporting-artist-avatar {
     border-color: var(--primary);
 }
 
-.following-artist-name {
+.supporting-artist-name {
     font-size: 12px;
     font-weight: 600;
     text-align: center;
@@ -1329,11 +1329,11 @@ body {
     stroke: #22c55e;
 }
 
-.activity-icon.followed {
+.activity-icon.supported {
     background: rgba(59, 130, 246, 0.2);
 }
 
-.activity-icon.followed svg {
+.activity-icon.supported svg {
     stroke: #3b82f6;
 }
 
@@ -2165,11 +2165,6 @@ body {
 .momentum-wheel-sm .momentum-target strong {
     color: #f97316;
     font-weight: 600;
-}
-
-.following-btn {
-    background: var(--bg-tertiary) !important;
-    border: 1px solid var(--primary) !important;
 }
 
 /* Home Featured Mobile */

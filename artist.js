@@ -50,36 +50,36 @@ filterBtns.forEach(btn => {
     });
 });
 
-// Follow button functionality
-const followArtistBtn = document.querySelector('.follow-artist-btn');
+// Support button functionality
+const supportArtistBtn = document.querySelector('.support-artist-btn');
 
-if (followArtistBtn) {
-    followArtistBtn.addEventListener('click', () => {
-        if (followArtistBtn.classList.contains('following')) {
-            followArtistBtn.classList.remove('following');
-            followArtistBtn.textContent = 'Follow';
+if (supportArtistBtn) {
+    supportArtistBtn.addEventListener('click', () => {
+        if (supportArtistBtn.classList.contains('supporting')) {
+            supportArtistBtn.classList.remove('supporting');
+            supportArtistBtn.textContent = 'Support';
         } else {
-            followArtistBtn.classList.add('following');
-            followArtistBtn.textContent = 'Following';
+            supportArtistBtn.classList.add('supporting');
+            supportArtistBtn.textContent = 'Supporting';
         }
     });
 }
 
-// Small follow buttons
-const followSmallBtns = document.querySelectorAll('.follow-small-btn');
+// Small support buttons
+const supportSmallBtns = document.querySelectorAll('.support-small-btn');
 
-followSmallBtns.forEach(btn => {
+supportSmallBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
 
-        if (btn.textContent === 'Follow') {
-            btn.textContent = 'Following';
+        if (btn.textContent === 'Support') {
+            btn.textContent = 'Supporting';
             btn.style.background = 'linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%)';
             btn.style.color = 'white';
             btn.style.borderColor = 'transparent';
         } else {
-            btn.textContent = 'Follow';
+            btn.textContent = 'Support';
             btn.style.background = 'transparent';
             btn.style.color = 'var(--primary-light)';
             btn.style.borderColor = 'var(--primary)';
