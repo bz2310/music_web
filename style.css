@@ -2084,11 +2084,9 @@ body {
 }
 
 .home-featured-card .relationship-signal {
-    display: inline-flex;
-    width: auto;
     margin: 8px 0 12px;
     font-size: 12px;
-    padding: 6px 14px;
+    padding: 6px 12px;
 }
 
 .home-featured-card .featured-artist-stats {
@@ -3059,17 +3057,27 @@ a.leaderboard-item {
 .relationship-signal {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: 4px;
+    gap: 8px;
     padding: 8px 14px;
-    background: rgba(139, 43, 255, 0.15);
+    background: linear-gradient(135deg, rgba(139, 43, 255, 0.15) 0%, rgba(179, 102, 255, 0.08) 100%);
     border: 1px solid rgba(139, 43, 255, 0.3);
-    border-radius: 20px;
+    border-radius: 24px;
     font-size: 13px;
+    font-weight: 600;
     color: var(--primary-light);
+    letter-spacing: 0.2px;
     white-space: nowrap;
-    height: auto;
-    min-height: unset;
+    cursor: default;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(139, 43, 255, 0.1);
+    backdrop-filter: blur(4px);
+}
+
+.relationship-signal:hover {
+    background: linear-gradient(135deg, rgba(139, 43, 255, 0.25) 0%, rgba(179, 102, 255, 0.15) 100%);
+    border-color: rgba(139, 43, 255, 0.5);
+    box-shadow: 0 4px 16px rgba(139, 43, 255, 0.2);
+    transform: translateY(-1px);
 }
 
 /* Rising Context */
