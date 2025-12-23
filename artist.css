@@ -153,6 +153,97 @@
     letter-spacing: 0.2px;
 }
 
+/* Momentum Indicator */
+.momentum-indicator {
+    margin: 16px 0;
+    padding: 14px 18px;
+    background: linear-gradient(135deg, rgba(139, 43, 255, 0.08) 0%, rgba(249, 115, 22, 0.06) 100%);
+    border: 1px solid rgba(139, 43, 255, 0.2);
+    border-radius: 14px;
+    max-width: 320px;
+}
+
+.momentum-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.momentum-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, #f97316 0%, #fb923c 100%);
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.momentum-icon svg {
+    width: 16px;
+    height: 16px;
+    stroke: white;
+    fill: none;
+}
+
+.momentum-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    flex: 1;
+}
+
+.momentum-percent {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f97316;
+}
+
+.momentum-bar {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.momentum-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #f97316 0%, #fb923c 50%, #fbbf24 100%);
+    border-radius: 4px;
+    transition: width 0.6s ease-out;
+    position: relative;
+}
+
+.momentum-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.momentum-text {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.momentum-text strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
 .artist-action-buttons {
     position: absolute;
     top: 20px;
@@ -960,6 +1051,39 @@
     }
 
     .stat-label {
+        font-size: 11px;
+    }
+
+    /* Momentum indicator mobile */
+    .momentum-indicator {
+        max-width: 100%;
+        margin: 14px auto;
+        padding: 12px 14px;
+    }
+
+    .momentum-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .momentum-icon svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .momentum-label {
+        font-size: 12px;
+    }
+
+    .momentum-percent {
+        font-size: 14px;
+    }
+
+    .momentum-bar {
+        height: 6px;
+    }
+
+    .momentum-text {
         font-size: 11px;
     }
 

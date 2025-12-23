@@ -83,6 +83,21 @@ const LaunchpadUI = {
                     <div class="featured-artist-stats">
                         <span><strong>${artist.stats.supporters}</strong> supporters</span>
                     </div>
+                    <div class="momentum-indicator momentum-compact">
+                        <div class="momentum-header">
+                            <div class="momentum-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                                </svg>
+                            </div>
+                            <span class="momentum-label">Momentum</span>
+                            <span class="momentum-percent">68%</span>
+                        </div>
+                        <div class="momentum-bar">
+                            <div class="momentum-fill" style="width: 68%"></div>
+                        </div>
+                        <p class="momentum-text">toward <strong>15K Supporters</strong></p>
+                    </div>
                     ${this.renderSupporterRelationship(artist.id)}
                     <a href="membership.html?artist=${artist.id}" class="support-btn-small ${isSupporting ? 'supporting-btn' : ''}">${isSupporting ? 'Supporting' : 'Support'}</a>
                 </div>
@@ -307,6 +322,21 @@ const LaunchpadUI = {
                     <p class="featured-artist-bio">${artist.bio}</p>
                     <div class="featured-artist-stats">
                         <span><strong>${artist.stats.supporters}</strong> supporters</span>
+                    </div>
+                    <div class="momentum-indicator momentum-compact">
+                        <div class="momentum-header">
+                            <div class="momentum-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                                </svg>
+                            </div>
+                            <span class="momentum-label">Momentum</span>
+                            <span class="momentum-percent">68%</span>
+                        </div>
+                        <div class="momentum-bar">
+                            <div class="momentum-fill" style="width: 68%"></div>
+                        </div>
+                        <p class="momentum-text">toward <strong>15K Supporters</strong></p>
                     </div>
                     ${this.renderSupporterRelationship(artist.id)}
                     <a href="membership.html?artist=${artist.id}" class="support-btn-small ${isSupporting ? 'supporting-btn' : ''}">${isSupporting ? 'Supporting' : 'Support'}</a>
