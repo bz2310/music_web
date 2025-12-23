@@ -1167,6 +1167,50 @@ body {
     color: var(--primary-light);
 }
 
+/* Badges Collapsible Section */
+.badges-collapsible {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.badges-hidden {
+    display: none;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.badges-hidden.expanded {
+    display: grid;
+}
+
+.badges-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(139, 43, 255, 0.3);
+    color: var(--primary-light);
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.badges-toggle-btn:hover {
+    background: rgba(139, 43, 255, 0.1);
+    border-color: rgba(139, 43, 255, 0.5);
+}
+
+.badges-toggle-btn svg {
+    transition: transform 0.2s ease;
+}
+
 /* Favorite Artist Card */
 .favorite-artist-card {
     display: flex;

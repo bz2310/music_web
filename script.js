@@ -131,9 +131,12 @@ const LaunchpadUI = {
         const definitions = LaunchpadDB.badgeDefinitions;
         // Order by identity priority
         const badgeOrder = ['earlySupporter', 'foundingListener', 'tastemaker', 'milestoneUnlocker', 'communityVoice', 'showSupporter', 'btsCircle'];
-        let html = '';
+        const maxVisible = 4;
+        let visibleHtml = '';
+        let hiddenHtml = '';
         let lockedProgressCount = 0;
         const maxLockedProgress = 2;
+        let badgeIndex = 0;
 
         badgeOrder.forEach(badgeKey => {
             const badge = userBadges[badgeKey];
@@ -147,7 +150,7 @@ const LaunchpadUI = {
 
             if (showProgress) lockedProgressCount++;
 
-            html += `
+            const badgeHtml = `
                 <div class="badge-item ${badgeClass}" title="${definition.description}">
                     <span class="badge-icon" style="--badge-color: ${definition.color}">${definition.icon}</span>
                     <div class="badge-info">
@@ -164,9 +167,33 @@ const LaunchpadUI = {
                     </div>
                 </div>
             `;
+
+            if (badgeIndex < maxVisible) {
+                visibleHtml += badgeHtml;
+            } else {
+                hiddenHtml += badgeHtml;
+            }
+            badgeIndex++;
         });
 
-        return html;
+        // If there are hidden badges, wrap them in a collapsible section
+        if (hiddenHtml) {
+            return visibleHtml + `
+                <div class="badges-collapsible">
+                    <div class="badges-hidden" id="hidden-badges">
+                        ${hiddenHtml}
+                    </div>
+                    <button class="badges-toggle-btn" data-action="toggle-badges">
+                        <span class="toggle-text">Show more badges</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            `;
+        }
+
+        return visibleHtml;
     },
 
     // Render top badges preview (icons only, for under name)
@@ -1096,6 +1123,26 @@ const LaunchpadUI = {
                 const badgesSection = document.getElementById('fan-badges-section');
                 if (badgesSection) {
                     badgesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+
+            // Handle badges toggle button
+            if (e.target.closest('.badges-toggle-btn')) {
+                const btn = e.target.closest('.badges-toggle-btn');
+                const hiddenBadges = document.getElementById('hidden-badges');
+                const toggleText = btn.querySelector('.toggle-text');
+                const icon = btn.querySelector('svg');
+
+                if (hiddenBadges) {
+                    const isExpanded = hiddenBadges.classList.contains('expanded');
+                    hiddenBadges.classList.toggle('expanded');
+
+                    if (toggleText) {
+                        toggleText.textContent = isExpanded ? 'Show more badges' : 'Show less';
+                    }
+                    if (icon) {
+                        icon.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
+                    }
                 }
             }
         });
