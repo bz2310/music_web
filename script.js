@@ -742,7 +742,7 @@ const LaunchpadUI = {
 
                 <!-- Following Artists -->
                 <div class="profile-section">
-                    <h3 class="profile-section-title">Artists You Follow</h3>
+                    <h3 class="profile-section-title">Artists You Support</h3>
                     <div class="following-artists-grid">
                         ${followedArtists.map(artist => `
                             <a href="${artist.profileUrl}" class="following-artist-card">
@@ -833,19 +833,19 @@ const LaunchpadUI = {
 
         const leaderboard = LaunchpadDB.getLeaderboard();
 
-        // Render Following
+        // Render Following (Artists You Support)
         let followingHtml = '';
-        leaderboard.followed.forEach((artist, index) => {
+        leaderboard.followed.forEach((artist) => {
             const isFavorite = LaunchpadDB.currentUser.favoriteArtist === artist.id;
-            const isHot = index === 0 || artist.stats.weeklyGrowth >= 30;
+            const risingContext = artist.risingReason ? `<span class="leaderboard-rising-context">${artist.risingReason}</span>` : '';
 
             followingHtml += `
                 <${isFavorite ? 'a href="' + artist.profileUrl + '"' : 'div'} class="leaderboard-item">
-                    <span class="leaderboard-rank ${isHot ? 'hot' : ''}">${isHot ? '🔥' : index + 1}</span>
+                    <span class="leaderboard-rank hot">🔥</span>
                     <img src="${artist.avatar}" alt="${artist.name}" class="leaderboard-avatar">
                     <div class="leaderboard-info">
                         <p class="leaderboard-name">${artist.name} ${artist.verified ? '<span class="verified-small">✓</span>' : ''}</p>
-                        <p class="leaderboard-handle">${artist.handle}</p>
+                        ${risingContext}
                     </div>
                     <div class="leaderboard-growth positive">
                         ${this.icons.arrowUp}
@@ -858,17 +858,15 @@ const LaunchpadUI = {
 
         // Render Discover
         let discoverHtml = '';
-        leaderboard.discover.forEach((artist, index) => {
-            const isHot = index < 2 || artist.stats.weeklyGrowth >= 80;
-            const risingContext = artist.risingReason ? `<span class="leaderboard-rising-context">📣 ${artist.risingReason}</span>` : '';
+        leaderboard.discover.forEach((artist) => {
+            const risingContext = artist.risingReason ? `<span class="leaderboard-rising-context">${artist.risingReason}</span>` : '';
 
             discoverHtml += `
                 <div class="leaderboard-item">
-                    <span class="leaderboard-rank ${isHot ? 'hot' : ''}">${isHot ? '🔥' : index + 1}</span>
+                    <span class="leaderboard-rank hot">🔥</span>
                     <img src="${artist.avatar}" alt="${artist.name}" class="leaderboard-avatar">
                     <div class="leaderboard-info">
                         <p class="leaderboard-name">${artist.name}</p>
-                        <p class="leaderboard-handle">${artist.handle}</p>
                         ${risingContext}
                     </div>
                     <div class="leaderboard-stats">
