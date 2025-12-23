@@ -68,7 +68,14 @@
 .artist-handle {
     color: var(--text-secondary);
     font-size: 15px;
+    margin-bottom: 6px;
+}
+
+.artist-growth-indicator {
+    font-size: 13px;
+    color: var(--text-secondary);
     margin-bottom: 8px;
+    opacity: 0.85;
 }
 
 .artist-location {
